@@ -210,6 +210,7 @@ code {
                 <a class="tab" href="#contact">Contact</a>
             </nav>
         </header>
+
         <section class="view" id="view-overview">
             <p class="eyebrow">// the workshop</p>
             <h1>Building <span class="accent">low-level</span> systems, deliberately.</h1>
@@ -221,13 +222,13 @@ code {
 
         <!-- about -->
          <section id="about">
-            <p class="section-label">// about</p>
+            <p class="section-label">// About</p>
             <h2>What is this?</h2>
             <p>
                 ProtOS Systems is a hub of projects the ProtOS Developers are, have, 
                 or are planning to work on. Our main focus is on our own operating system, ProtOS.
                 Through our time from starting ProtOS in 2025, to now, We've landed on a few more projects,
-                That have to do with Wndows, Linux, and even some hardware projects. Such as, installingn Linux on
+                That have to do with Windows, Linux, macOS, and even some hardware projects. Such as, installingn Linux on
                 MacBook Silicon, hardware for protogens, and more. This website will be frequently updated with new Developer logs,
                 project status updates and even posts about our work.
 
@@ -239,16 +240,41 @@ code {
             </p>
         </section>
 
-        <!-- work and focus -->
-         <section id="work">
-            <p class="section-label">// focus</p>
-            <h2>Areas</h2>
-         </div class="grid">
-            <div class="card">
-                <h3>
-            </div>
-
+        <!-- Project list -->
+         <section class="view" id="view-projects" hidden>
+            <p class="section-label">// Projects</p>
+            <h2>What we're building.</h2>
+            <p class="muted">Each project keeps its own running log. Pick one to read up on.</p>
+            <div class="grid" id="projects-grid"></div>
          </section>
+
+         <!-- Project detail -->
+          <section class="view" id="view-project" hidden>
+            <a class="back" href="#projects">All Projects</a>
+            <a id="project-detail"></a>
+            <div id="project-detail"></div>
+          </section>
+
+         <!-- dev logs -->
+          <section class="view" id="view-logs" hidden>
+            <p class="section-label">// Developer logs</p>
+            <h2>Dev Logs</h2>
+            <p class="muted">Everything, newest first. Each entry is tagged with it's project.</p>
+            <div id="logs-feed" style="margin-top:2rem"></div>
+          </section>
+
+         <!-- Contact -->
+          <section class="view" id="view-contact" hidden>
+            <p class="section-label">// Contact</p>
+            <h2>Get in touch</h2>
+            <p class="muted">
+                Inquiries to ProtOS Systems:<br>
+                <a href="mailto:insertemailhere@fuck.you">insertemailhere@fuck.you</a>
+            </p>
+        <p class="muted">
+            Code build files live on
+            <a href="https://github.com/ProtOSdotDEV/">Github</a>
+        </p>
 
         <footer>
             <div class="footer-bottom">
@@ -257,8 +283,107 @@ code {
         </footer>
     
     </div>
+
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        const TABS = ["overview", "projects", "logs", "contact"];
+        let DATA = { projects: {}, logs: [] };
+
+        const esc = (s) => String(s).replace(/[&<>"]/g, c =>
+            ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+        const fmtDate = (iso) => {
+            const d = new Date(iso + "T00:00:00");
+            return isNaN(d) ? iso : d.toLocaleDateString(undefined,
+                { year: "numeric", month: "short", day: "numeric" });
+        };
+
+        const projName = (id) => (DATA.projects[id] && DATA.projects[id].name) || id;
+
+        function logHTML(log, withProject) {
+            const proj = withProject
+                ? `<a href="#projects/${esc(log.project)}">${esc(projName(log.project))}</a>`
+                : "";
+            return `<article class="log">
+                <div class="log-meta"><span>${esc(fmtDate(log.date))}</span>${proj}</div>
+                <h3>${esc(log.title)}</h3>
+                <p>${esc(log.body)}</p>
+            </article>`;
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById("projects-grid");
+            const ids = Object.keys(DATA.projects);
+            grid.innerHTML = ids.length ? ids.map(id => {
+                const p = DATA.projects[id];
+                return `<a class="project-card" href="#projects/${esc(id)}">
+                    <span class="pill">${esc(p.status || "")}</span>
+                    <h3>${esc(p.name)}</h3>
+                    <p>${esc(p.blurb || "")}</p>
+                </a>`;
+            }).join("") : `<p class="empty">No projects yet.</p>`;
+        }
+
+        function renderProjectDetail(id) {
+            const p = DATA.projects[id];
+            const el = document.getElementById("project-detail");
+            if (!p) { el.innerHTML = `<p class="empty">Project not found.</p>`; return; }
+            const tags = (p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join("");
+            const logs = DATA.logs
+                .filter(l => l.project === id)
+                .sort((a, b) => b.date.localeCompare(a.date));
+            el.innerHTML = `
+                <span class="pill">${esc(p.status || "")}</span>
+                <h2 style="margin-top:.75rem">${esc(p.name)}</h2>
+                <p class="lead muted">${esc(p.blurb || "")}</p>
+                ${tags ? `<div class="tag-list">${tags}</div>` : ""}
+                <p class="section-label" style="margin-top:2.5rem">// logs</p>
+                <div>${logs.length ? logs.map(l => logHTML(l, false)).join("")
+                    : `<p class="empty">No logs for this project yet.</p>`}</div>`;
+        }
+
+        function renderLogs() {
+            const feed = document.getElementById("logs-feed");
+            const logs = [...DATA.logs].sort((a, b) => b.date.localeCompare(a.date));
+            feed.innerHTML = logs.length ? logs.map(l => logHTML(l, true)).join("")
+                : `<p class="empty">No logs yet.</p>`;
+        }
+
+        function show(viewId, tab) {
+            document.querySelectorAll(".view").forEach(v => v.hidden = (v.id !== viewId));
+            document.querySelectorAll("#nav .tab").forEach(a =>
+                a.classList.toggle("active", a.getAttribute("href") === "#" + tab));
+            window.scrollTo(0, 0);
+        }
+
+        function route() {
+            const raw = location.hash.slice(1) || "overview";
+            const [tab, sub] = raw.split("/");
+            if (tab === "projects" && sub) {
+                renderProjectDetail(sub);
+                show("view-project", "projects");
+            } else if (TABS.includes(tab)) {
+                show("view-" + tab, tab);
+            } else {
+                show("view-overview", "overview");
+            }
+        }
+
+        async function init() {
+            document.getElementById("year").textContent = new Date().getFullYear();
+            try {
+                const res = await fetch("dev-logs.json", { cache: "no-cache" });
+                if (res.ok) DATA = await res.json();
+            } catch (e) {
+                document.getElementById("logs-feed").innerHTML =
+                    `<p class="empty">Could not load logs (serve over http, not file://).</p>`;
+            }
+            renderProjects();
+            renderLogs();
+            route();
+        }
+
+        window.addEventListener("hashchange", route);
+        init();
     </script>
 
 </body>
