@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProtOS Systems</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="sytlesheet" href="style.css" />
-</head>
-
-<!-- CSS STYLES -->
- <style>
-    :root {
+:root {
     --bg: #0d1117;
     --fg: #e6edf3;
     --muted: #8b949e;
@@ -117,32 +102,3 @@ code {
     font-size: 0.75rem;
     color: var(--fg);
 }
- </style>
-<!---------------->
-<body>
-    <div class="wrap">
-        <header class="header">
-            <span class="site-title">ProtOS Systems</span>
-            <nav class="navbar">
-                <a href="index.html">Home</a>
-            </nav>
-        </header>
-        <section class="card">
-            <p>
-                bralalalall memow meow meow
-            </p>
-        </section>
-
-        <footer>
-            <div class="footer-bottom">
-                &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
-            </div>
-        </footer>
-    
-    </div>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-
-</body>
-</html>
