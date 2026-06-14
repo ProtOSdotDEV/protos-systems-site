@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="sytlesheet" href="style.css" />
 </head>
 
 <!-- CSS STYLES -->
@@ -20,67 +19,107 @@
     --accent: #58a6ff;
     --card: #161b22;
     --border: #30363d;
+    --mono: 'JetBrains Mono', 'Fira Mono', ui-monospace, monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; }
+html { font-size: 16px; scroll-behavior: smooth }
 
 /* Montserrat Font */
 
 body {
-    font-family: system-ui, -apple-system, "Montserrat", sans-serif;
+    font-family: "Montserrat", -apple-system, sans-serif;
     background: var(--bg);
     color: var(--fg);
     line-height: 1.6;
     min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 0 1.5rem;
 }
 
-a {
-    color: #e0e0e0;
-    text-decoration: none;
-}
+a { color: var(--accent); text-decoration: none; }
 
-a:hover { color: #ffffff; text-decoration: underline; }
+a:hover { text-decoration: underline; }
 
 .wrap {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 4rem 0 6rem;
-}
-
-h1 {
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    letter-spacing: -0.05em;
-    margin-bottom: 0.0rem;
+    padding: 0 6rem;
 }
 
 .header {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 1.5rem;
+    padding: 1.5rem;
     margin-bottom: 3rem;
 }
 
 .site-title {
-    font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+    font-family: var(--mono);
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: -0.02em;
     color: var(--accent);
 }
 
-.navbar {
-    display: flex;
-    gap: 1.5rem;
+.navbar { display: flex; gap: 1.5rem; }
+.navbar a { color: var(--fg); font-size: 0.95rem; }
+.navbar a:hover { color: #fff; }
+
+.hero { padding: 2rem 0 4rem; }
+
+.hero h1 {
+    font-size: clamp(2.2rem, 7vw, 3.75rem);
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
 }
 
-.tagline { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
+.hero .accent { color: var(--accent); }
+
+.tagline {
+    color: var(--muted);
+    font-size: 1.15rem;
+    max-width: 48ch;
+    margin-bottom: 2rem;
+}
+
+.cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    border: 1px solid var(--accent);
+}
+.btn-primary { background: var(--accent); color: #0d1117; border-color: var(--accent); }
+.btn-primary:hover { text-decoration: none; filter: brightness(1.1); }
+.btn-ghost:hover { text-decoration: none; border-color: var(--accent); }
+
+section { margin-bottom: 4rem; }
+
+.section label {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
+h2 { font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 1rem; }
+p + p {margin-top: 1rem; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
 
 .card {
     background: var(--card);
@@ -90,6 +129,8 @@ h1 {
     text-align: left;
 
 }
+.card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.card p { color: var(--muted); font-size: 0.95rem; }
 
 code {
     background: #21262d;
@@ -97,41 +138,78 @@ code {
     padding: 0.1em 0.4em;
     border-radius: 4px;
     font-size: 0.9em;
+    font-family: var(--mono);
 }
 
 .footer {
-    margin-top: 5rem;
-    padding-top: 1.5rem;
     border-top: 1px solid #2e2e2e;
+    padding: 1.15rem 0;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     font-size: 0.68rem;
-    color: #555555;
+    color: var(--muted);
     display: flex;
     justify-content: space-between;
 }
-
-.footer-bottom {
-    background: var(--bg);
-    border-top: 1px solid var(--bg);
-    padding: 1.25rem 2.5rem;
-    text-align: center;
-    font-size: 0.75rem;
-    color: var(--fg);
-}
+.footer .navbar a { font-size: 0.8rem; color: var(--muted); }
  </style>
 <!---------------->
 <body>
     <div class="wrap">
         <header class="header">
-            <span class="site-title">ProtOS Systems</span>
+            <span class="site-title">ProtOS&nbsp;Systems</span>
             <nav class="navbar">
-                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#dev-logs">Dev Logs</a>
+                <a href="#contact">Contact</a>
             </nav>
         </header>
-        <section class="card">
+        <section class="hero">
+            <h1>Building <span class="accent">low-level</span> systems, deliberately.</h1>
+            <p class="tagline">
+                ProtOS Systems is a workshop for operating systems, applications, 
+                and doing everything computer manufacturors don't want you doing.
+                This site is currently under construction, pardon the dust.
+            </p>
+            <div class="cta">
+                <a class="btn btn-primary" href="#contact">Get in Touch</a>
+                <a class="btn btn-ghost" href="https://github.com/ProtOSdotDEV">Github</a>
+            </div>
+        </section>
+
+        <!-- about -->
+         <section id="about">
+            <p class="section-label">// about</p>
+            <h2>What is this?</h2>
             <p>
-                bralalalall memow meow meow
+                ProtOS Systems is a hub of projects the ProtOS Developers are, have, 
+                or are planning to work on. Our main focus is on our own operating system, ProtOS.
+                Through our time from starting ProtOS in 2025, to now, We've landed on a few more projects,
+                That have to do with Wndows, Linux, and even some hardware projects. Such as, installingn Linux on
+                MacBook Silicon, hardware for protogens, and more. This website will be frequently updated with new Developer logs,
+                project status updates and even posts about our work.
+
+                Why do you care?
+                If you landed here, either you're unreasonable lost, or you take interest into low-level systems,
+                free and open source software and you found yourself here, whether you are a protogen looking to get
+                a Visor, a tech nerd who's looking to get linux on their MacBook, then this is where you would come to get that.
+
             </p>
         </section>
+
+        <!-- work and focus -->
+         <section id="work">
+            <p class="section-label">// focus</p>
+            <h2>Areas</h2>
+         </div class="grid">
+            <div class="card">
+                <h3>
+            </div>
+
+         </section>
 
         <footer>
             <div class="footer-bottom">
