@@ -51,6 +51,7 @@
 .tab:hover { color: var(--green); text-decoration: none; background: var(--green-glow); }
 .tab.active { color: var(--green); background: var(--green-glow); border: 1px solid var(--green-dim); }
 
+/* footer */
 .footer {
     width: 100%;
     background: var(--surface);
