@@ -5,13 +5,15 @@
     <meta name="description" content="Building low-level systems, deliberately."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProtOS Systems</title>
+    <link rel="stylesheet" href="/assets/css/pride.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <!-- CSS STYLES -->
- <style>
+<style>
     :root {
     --bg: #000;
     --surface: #0d0d0d;
@@ -49,53 +51,6 @@ body {
 
 a { color: var(--green); text-decoration: none; }
 a:hover { color: var(--text-bright); text-decoration: underline; }
-
-/* navbar */
-.navbar {
-    width: 100%;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0.85rem 1.5rem;
-    min-height: 3rem;
-}
-
-.site-title {
-    font-family: var(--mono), sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--green);
-    position: relative;
-    z-index: 1;
-    white-space: nowrap;
-}
-
-.site-title:hover { color: var(--text-bright); text-decoration: none; }
-
-.nav-links {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.25rem;
-    flex-wrap: nowrap;
-}
-
-.tab {
-    color: var(--text-dim);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.4rem 0.85rem;
-    border-radius: 2px;
-    transition: color 0.15s, background 0.15s;
-}
-.tab:hover { color: var(--green); text-decoration: none; background: var(--green-glow); }
-.tab.active { color: var(--green); background: var(--green-glow); border: 1px solid var(--green-dim); }
 
 /* layout */
 .wrap {
@@ -291,26 +246,6 @@ section p {
 .back:before { content: '← '; }
 .empty { color: var(--text-dim); font-style: italic; font-size: 0.88rem; }
 
-/* footer */
-.footer {
-    width: 100%;
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    padding: 1.1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2rem;
-}
-
-.footer-bottom {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-}
-
 /* responsive */
 @media (max-width: 600px) {
     h1 { font-size: 1.6rem; }
@@ -320,12 +255,27 @@ section p {
 </style>
 <!---------------->
 <body>
+    <div class="pride-banner">
+        <div class="pride-stripes">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span>
+        </div>
+        <div class="pride-content">
+            <span class="pride-comment">/*</span>
+            <span class="pride-flag">🏳️‍🌈</span>
+            <span class="pride-keyword">Happy Pride Month</span>
+            <span class="pride-comment">//</span>
+            <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQ+"</span><span class="pride-fn">)</span></span>
+            <span class="pride-comment"> */</span>
+        </div>
+    </div>
     <nav class="navbar">
         <a class="site-title" href="/">ProtOS Systems</a>
         <div class="nav-links" id="nav">
             <a class="tab" href="#overview">Overview</a>
             <a class="tab" href="#projects">Projects</a>
-            <a class="tab" href="#developer-logs">Developer Logs</a>
+            <a class="tab" href="#developer-logs">Dev Logs</a>
             <a class="tab" href="/en/contact/">Contact</a>
         </div>
     </nav>
@@ -343,7 +293,7 @@ section p {
         </section>
 
         <!-- about -->
-         <section id="about">
+        <section id="overview">
             <p class="section-label">// about</p>
             <h2>What is this?</h2>
             <p>
