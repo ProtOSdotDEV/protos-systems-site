@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Page not found - ProtOS Systems"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 // ProtOS Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:          #000000;
+            --surface:     #0d0d0d;
+            --border:      #1f1f1f;
+            --green:       #00ff41;
+            --green-dim:   #00802a;
+            --green-glow:  rgba(0, 255, 65, 0.08);
+            --text:        #d4d4d4;
+            --text-dim:    #606060;
+            --text-bright: #ffffff;
+            --mono:        'Courier New', monospace;
+        }
+
+        *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { color: var(--green); text-decoration: none; }
+        a:hover { color: var(--text-bright); text-decoration: underline; }
+
+        /* navbar */
+        .navbar {
+            width: 100%;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0.85rem 1.5rem;
+            min-height: 3rem;
+        }
+
+        .site-title {
+            font-family: var(--mono);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--green);
+            position: relative;
+            z-index: 1;
+            white-space: nowrap;
+        }
+        .site-title:hover { color: var(--text-bright); text-decoration: none; }
+
+        .nav-links {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: nowrap;
+        }
+
+        .tab {
+            color: var(--text-dim);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.85rem;
+            border-radius: 2px;
+            transition: color 0.15s, background 0.15s;
+        }
+        .tab:hover { color: var(--green); text-decoration: none; background: var(--green-glow); }
+
+        /* center everything vertically */
+        .wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        /* terminal block */
+        .terminal {
+            width: 100%;
+            max-width: 560px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 2.5rem;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        .terminal-bar {
+            background: #181818;
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .terminal-title {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-left: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .terminal-body {
+            padding: 1.25rem 1.5rem;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .terminal-body p { white-space: pre-wrap; word-break: break-all; }
+        .t-gap { margin-top: 0.6rem; }
+
+        .t-dim   { color: var(--text-dim); }
+        .t-cmd   { color: var(--text-bright); font-weight: 700; }
+        .t-path  { color: var(--text-dim); }
+        .t-err   { color: #ff4444; }
+        .t-warn  { color: #ffaa00; }
+        .t-green { color: var(--green); }
+
+        /* blinking cursor */
+        .cursor {
+            display: inline-block;
+            width: 7px;
+            height: 0.9em;
+            background: var(--green);
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .hero-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--text-bright);
+            margin-bottom: 0.65rem;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            max-width: 40ch;
+            line-height: 1.85;
+            margin-bottom: 2rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2px;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--green-glow);
+            border: 1px solid var(--green-dim);
+            color: var(--green);
+        }
+        .btn-primary:hover {
+            background: rgba(0, 255, 65, 0.14);
+            border-color: var(--green);
+            color: var(--text-bright);
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+        .btn-secondary:hover {
+            border-color: var(--green-dim);
+            color: var(--text-bright);
+            text-decoration: none;
+        }
+
+        /* footer */
+        .footer {
+            width: 100%;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 1.1rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .footer-bottom {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { position: static; transform: none; }
+            .navbar { flex-wrap: wrap; gap: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a class="site-title" href="en/home/">ProtOS Systems</a>
+    <div class="nav-links">
+        <a class="tab" href="en/home/">Overview</a>
+        <a class="tab" href="en/home/#projects">Projects</a>
+        <a class="tab" href="en/home/#developer-logs">Developer Logs</a>
+        <a class="tab" href="/en/contact/">Contact</a>
+    </div>
+</nav>
+
+<div class="wrap">
+    <div class="terminal">
+        <div class="terminal-bar">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-title">root@protos-systems: ~</span>
+        </div>
+        <div class="terminal-body">
+            <p><span class="t-dim">$</span> <span class="t-cmd">GET</span> <span class="t-path">/this/page</span></p>
+            <p class="t-gap"><span class="t-err">curl: (404) Not Found</span></p>
+            <p><span class="t-dim">protos-kernel:</span> <span class="t-warn">page fault</span> at address <span class="t-green">0x00000000</span></p>
+            <p><span class="t-dim">protos-kernel:</span> no mapping found for virtual address</p>
+            <p class="t-gap"><span class="t-dim">#0</span> 0xdeadbeef in <span class="t-green">http_resolve_route</span>()</p>
+            <p><span class="t-dim">#1</span> 0x00404040 in <span class="t-green">router_dispatch</span> (path=<span class="t-warn">NULL</span>)</p>
+            <p><span class="t-dim">#2</span> 0x00000404 in <span class="t-green">main</span> ()</p>
+            <p class="t-gap"><span class="t-dim">$</span> <span class="t-cmd">echo</span> $?</p>
+            <p>404</p>
+            <p class="t-gap"><span class="t-dim">$</span> <span class="cursor"></span></p>
+        </div>
+    </div>
+
+    <h1 class="hero-title">Page not found.</h1>
+    <p class="desc">
+        This route does not exist. Maybe it's a bad link, maybe a typo - either way, the kernel couldn't map it.
+    </p>
+    <div clas="actions">
+        <a class="btn btn-primary" href="en/home/">← Back to home</a>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-bottom">
+        &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
+    </div>
+</footer>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
