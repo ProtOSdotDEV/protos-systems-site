@@ -3,6 +3,7 @@
 
 !.idea/runConfigurations/
 !.idea/codeStyles/
+sdir
 
 node_modules/
 /build
