@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93633997-a8d7-4718-9ad9-3c1361123c6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev-logs.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev-logs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="93633997-a8d7-4718-9ad9-3c1361123c6b" name="Changes" comment="Created 404 page, Contact page and updated file structure. Co-authored-by: ProtOSdotDEV &lt;ProtOSdotDEV@users.noreply.github.com&gt;, viperhacksaws" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,15 +32,18 @@
     &quot;assignee&quot;: &quot;AlbinoFoxGithub&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ProtOSdotDEV/protos-systems-site.git&quot;,
-    &quot;accountId&quot;: &quot;d1fb0b1b-25e3-4c40-bc08-550e917018ac&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ProtOSdotDEV/protos-systems-site.git",
+    "accountId": "31b6401e-7b6f-4c91-9e53-1b663f8108cf"
   }
-}</component>
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2,
@@ -108,8 +105,17 @@
       <updated>1781442968573</updated>
       <workItem from="1781442969587" duration="1136000" />
       <workItem from="1781477162089" duration="333000" />
-      <workItem from="1781477508154" duration="9529000" />
+      <workItem from="1781477508154" duration="10041000" />
     </task>
+    <task id="LOCAL-00001" summary="Created 404 page, Contact page and updated file structure. Co-authored-by: ProtOSdotDEV &lt;ProtOSdotDEV@users.noreply.github.com&gt;, viperhacksaws">
+      <option name="closed" value="true" />
+      <created>1781502041021</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1781502041021</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,5 +143,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created 404 page, Contact page and updated file structure. Co-authored-by: ProtOSdotDEV &lt;ProtOSdotDEV@users.noreply.github.com&gt;, viperhacksaws" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created 404 page, Contact page and updated file structure. Co-authored-by: ProtOSdotDEV &lt;ProtOSdotDEV@users.noreply.github.com&gt;, viperhacksaws" />
   </component>
 </project>
