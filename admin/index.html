@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin // ProtOS Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link href="/assets/css/nav.css" rel="stylesheet">
+    <link href="/assets/css/pride.css" rel="stylesheet">
+    <style>
+        .wrap { max-width: 560px; }
+    </style>
+</head>
+<body>
+<div class="pride-banner">
+    <div class="pride-stripes">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span>
+    </div>
+    <div class="pride-content">
+        <span class="pride-comment">/*</span>
+        <span class="pride-flag">🏳️‍🌈</span>
+        <span class="pride-keyword">Happy Pride Month</span>
+        <span class="pride-comment">//</span>
+        <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
+        <span class="pride-comment"> */</span>
+    </div>
+</div>
+<nav class="navbar">
+    <a class="site-title" href="/">ProtOS Systems</a>
+    <div class="nav-links">
+        <a class="tab" href="/">Overview</a>
+        <a class="tab" href="/en/Projects/">Projects</a>
+        <a class="tab active" href="/en/dev-log/">Developer Logs</a>
+        <a class="tab" href="/en/contact/">Contact</a>
+    </div>
+</nav>
+
+<div class="wrap">
+    <p class="eyebrow">// restricted</p>
+    <h1>Admin</h1>
+
+    <!-- LOGIN VIEW -->
+    <div id="login-view">
+        <p class="page-lead" style="margin-bottom: 2rem;">
+            Enter a GitHub personal access token with Contents read/write access
+            to <code>ProtOSdotDEV/protos-systems-site</code>.
+        </p>
+        <div class="form-status" id="login-status"></div>
+        <div class="field" style="margin-bottom: 1.5rem;">
+            <label for="token">GitHub Token</label>
+            <input type="password" id="token" placeholder="github_pat_..." autocomplete="off">
+        </div>
+        <button class="submit-btn" id="login-btn">
+            <span class="spinner"></span>
+            <span class="btn-label">Log in</span>
+        </button>
+    </div>
+
+    <!-- ADMIN VIEW -->
+    <div id="admin-view" style="display: none;">
+        <p class="page-lead" style="margin-bottom: 0.5rem;">
+            Logged in as <strong id="admin-user"></strong>.
+            <a href="#" id="logout-link">Log out</a>
+        </p>
+
+        <div class="form-status" id="post-status" style="margin-top: 1.5rem;"></div>
+
+        <form id="log-form" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
+            <div class="field">
+                <label for="project">Project</label>
+                <input type="text" id="project" placeholder="e.g. ProtOS" required>
+            </div>
+            <div class="field">
+                <label for="date">Date</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="field">
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="Short headline" required>
+            </div>
+            <div class="field">
+                <label for="body">Body</label>
+                <textarea id="body" placeholder="What happened?" required></textarea>
+            </div>
+            <button class="submit-btn" id="post-btn">
+                <span class="spinner"></span>
+                <span class="btn-label">Publish Log</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-bottom">
+        &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
+    </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const OWNER  = 'ProtOSdotDEV';
+const REPO   = 'protos-systems-site';
+const BRANCH = 'main';
+const LOGS_PATH = 'data/dev-logs.json';
+
+const loginView   = document.getElementById('login-view');
+const adminView   = document.getElementById('admin-view');
+const tokenInput  = document.getElementById('token');
+const loginBtn    = document.getElementById('login-btn');
+const loginStatus = document.getElementById('login-status');
+const adminUser   = document.getElementById('admin-user');
+const logoutLink  = document.getElementById('logout-link');
+const logForm     = document.getElementById('log-form');
+const postBtn     = document.getElementById('post-btn');
+const postStatus  = document.getElementById('post-status');
+
+let currentUser = null;
+
+document.getElementById('date').valueAsDate = new Date();
+
+function setStatus(el, msg, type) {
+    el.className = 'form-status' + (type ? ' ' + type : '');
+    el.textContent = msg;
+}
+
+function setLoading(btn, loading) {
+    btn.disabled = loading;
+    btn.classList.toggle('loading', loading);
+}
+
+function b64EncodeUnicode(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+        (_, p1) => String.fromCharCode('0x' + p1)));
+}
+function b64DecodeUnicode(str) {
+    return decodeURIComponent(atob(str).split('').map(c =>
+        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+}
+
+function getToken() {
+    return sessionStorage.getItem('gh_pat');
+}
+
+async function ghFetch(path, options = {}) {
+    return fetch(`https://api.github.com/repos/${OWNER}/${REPO}/${path}`, {
+        ...options,
+        headers: {
+            'Authorization': `Bearer ${getToken()}`,
+            'Accept': 'application/vnd.github+json',
+            ...options.headers,
+        },
+    });
+}
+
+async function verifyToken() {
+    try {
+        const res = await fetch('https://api.github.com/user', {
+            headers: { Authorization: `Bearer ${getToken()}`, Accept: 'application/vnd.github+json' },
+        });
+        if (!res.ok) return false;
+        const user = await res.json();
+        currentUser = user.login;
+        adminUser.textContent = user.login;
+
+        const repoRes = await ghFetch('');
+        return repoRes.ok;
+    } catch {
+        return false;
+    }
+}
+
+async function tryAutoLogin() {
+    if (getToken()) {
+        const ok = await verifyToken();
+        if (ok) showAdminView();
+    }
+}
+
+function showAdminView() {
+    loginView.style.display = 'none';
+    adminView.style.display = 'block';
+}
+
+loginBtn.addEventListener('click', async () => {
+    const token = tokenInput.value.trim();
+    if (!token) {
+        setStatus(loginStatus, 'Enter a token.', 'error');
+        return;
+    }
+    setLoading(loginBtn, true);
+    sessionStorage.setItem('gh_pat', token);
+
+    const ok = await verifyToken();
+    setLoading(loginBtn, false);
+
+    if (ok) {
+        setStatus(loginStatus, '', '');
+        showAdminView();
+    } else {
+        sessionStorage.removeItem('gh_pat');
+        setStatus(loginStatus, 'Invalid token or no access to this repo.', 'error');
+    }
+});
+
+logoutLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    sessionStorage.removeItem('gh_pat');
+    currentUser = null;
+    adminView.style.display = 'none';
+    loginView.style.display = 'block';
+    tokenInput.value = '';
+});
+
+logForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setLoading(postBtn, true);
+    setStatus(postStatus, '', '');
+
+    const entry = {
+        project: document.getElementById('project').value.trim(),
+        date: document.getElementById('date').value,
+        title: document.getElementById('title').value.trim(),
+        body: document.getElementById('body').value.trim(),
+        author: currentUser,
+    };
+
+    try {
+        const getRes = await ghFetch(`contents/${LOGS_PATH}?ref=${BRANCH}`);
+        if (!getRes.ok) throw new Error('Could not read current logs file.');
+        const file = await getRes.json();
+        const current = JSON.parse(b64DecodeUnicode(file.content));
+
+        current.logs = current.logs || [];
+        current.logs.unshift(entry);
+
+        const putRes = await ghFetch(`contents/${LOGS_PATH}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                message: `Add dev log: ${entry.title}`,
+                content: b64EncodeUnicode(JSON.stringify(current, null, 2)),
+                sha: file.sha,
+                branch: BRANCH,
+            }),
+        });
+
+        if (!putRes.ok) throw new Error('Failed to commit log entry.');
+
+        setStatus(postStatus, 'Published. The site will rebuild in about a minute.', 'success');
+        logForm.reset();
+        document.getElementById('date').valueAsDate = new Date();
+    } catch (err) {
+        setStatus(postStatus, err.message || 'Something went wrong.', 'error');
+    } finally {
+        setLoading(postBtn, false);
+    }
+});
+
+tryAutoLogin();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "projects": [
+    {
+      "name": "ProtOS",
+      "status": "In Progress",
+      "description": "Our flagship operating system project.",
+      "tags": ["OS", "Linux", "ARM64", "PROPRIETARY"],
+      "link": ""
+    }
+  ]
+}
