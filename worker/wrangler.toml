@@ -1,0 +1,10 @@
+name = "protos-admin-publish"
+main = "src/index.js"
+compatibility_date = "2024-06-01"
+
+# Intercept the admin publish endpoint at Cloudflare's edge. This path is also
+# covered by the Zero Trust policy on /admin/*, so only authenticated admins
+# (whose browser carries the Access cookie) can reach it.
+routes = [
+  { pattern = "protos-systems.dev/admin/api/*", zone_name = "protos-systems.dev" }
+]
