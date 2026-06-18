@@ -247,6 +247,128 @@ section p {
 .back:before { content: '← '; }
 .empty { color: var(--text-dim); font-style: italic; font-size: 0.88rem; }
 
+.newsletter {
+    width: 100%;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 1.5rem;
+}
+
+.newsletter-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.newsletter-label {
+    font-family: var(--mono), sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green-dim);
+}
+
+.newsletter-heading {
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--text-bright);
+    margin: 0;
+}
+
+.newsletter-desc {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    max-width: 48ch;
+}
+.newsletter-form {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    max-width: 480px;
+}
+.newsletter-input {
+    flex: 1;
+    min-width: 200px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-bright);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.7rem 1rem;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.15s;
+}
+.newsletter-input::placeholder { color: var(--text-dim); font-weight: 400; }
+.newsletter-input:focus { border-color: var(--green-dim); }
+.newsletter-input.invalid { border-color: #ff4444; }
+
+.newsletter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid var(--green-dim);
+    color: var(--green);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+.newsletter-btn:hover:not(:disabled) {
+    background: var(--green-glow);
+    border-color: var(--green);
+    color: var(--text-bright);
+}
+.newsletter-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.newsletter-btn .spinner {
+    width: 11px;
+    height: 11px;
+    border: 1.5px solid var(--green-dim);
+    border-top-color: var(--green);
+    border-radius: 50%;
+    animation: nl-spin 0.7s linear infinite;
+    display: none;
+}
+.newsletter-btn.loading .spinner { display: block; }
+.newsletter-btn.loading .btn-label { opacity: 0.6; }
+@keyframes nl-spin { to { transform: rotate(360deg); } }
+
+.newsletter-status {
+    display: none;
+    font-family: var(--mono), sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.7rem 1rem;
+    border-radius: 2px;
+    border-left: 2px solid;
+    max-width: 480px;
+}
+.newsletter-status.success {
+    display: block;
+    color: var(--green);
+    border-color: var(--green);
+    background: var(--green-glow);
+}
+.newsletter-status.error {
+    display: block;
+    color: #ff4444;
+    border-color: #ff4444;
+    background: rgba(255, 68, 68, 0.06);
+}
 /* responsive */
 @media (max-width: 600px) {
     h1 { font-size: 1.6rem; }
@@ -326,6 +448,34 @@ section p {
         </section>
     </div>
 
+    <div class="newsletter">
+        <div class="newsletter-inner">
+            <p class="newsletter-label">// stay up to date</p>
+            <h2 class="newsletter-heading">Subscribe to our newsletter.</h2>
+            <p class="newsletter-desc">
+                Get updated about our projects as soon as we announce it.
+
+                Don't want any more updates? Unsubscribe at any time.
+            </p>
+
+            <div class="newsletter-status" id="nl-status"></div>
+
+            <div class="newsletter-form" id="nl-form">
+                <input
+                    class="newsletter-input"
+                    id="nl-email"
+                    type="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    />
+                <button class="newsletter-btn" id="nl-btn" type="button">
+                    <span class="spinner"></span>
+                    <span class="btn-label">Subscribe</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="footer-bottom">
             &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
@@ -334,6 +484,63 @@ section p {
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const nlEmail = document.getElementById('nl-email');
+        const nlBtn = document.getElementById('nl-btn');
+        const nlStatus = document.getElementById('nl-status');
+        const nlForm = document.getElementById('nl-form');
+
+        function nlShowStatus(type, msg) {
+            nlStatus.className = `newsletter-status ${type}`;
+            nlStatus.textContent = msg;
+        }
+
+        nlBtn.addEventListener('click', async () => {
+            const email = nlEmail.value.trim();
+            nlEmail.classList.remove('invalid');
+            nlStatus.className = 'newsletter-status';
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                nlEmail.classList.add('invalid');
+                nlShowStatus('error', 'Please enter a valid email address.');
+                return;
+            }
+
+            nlBtn.disabled = true;
+            nlBtn.classList.add('loading');
+
+            try {
+                const res = await fetch('https://api.protos-systems.dev', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email }),
+                });
+
+                if (res.ok || res.status === 204) {
+                    nlForm.style.display = 'none';
+                    nlShowStatus('success', '// subscribed - welcome to the loop.');
+                } else {
+                    const json = await res.json().catch(() => ({}));
+
+                    if (res.status === 400 && json.code === 'DUPLICATE_PARAMETER') {
+                        nlForm.style.display = 'none';
+                        nlShowStatus('success', '// already subscribed - you\'re in the loop.');
+                    } else {
+                        nlShowStatus('error', json.message || 'Something went wrong. Please try again.');
+                        nlBtn.disabled = false;
+                        nlBtn.classList.remove('loading');
+                    }
+                }
+            } catch {
+                nlShowStatus('error', 'Network error. Please check your connection and try again.');
+                nlBtn.disabled = false;
+                nlBtn.classList.remove('loading');
+            }
+        });
+
+        nlEmail.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') nlBtn.click();
+        });
     </script>
 </body>
 </html>
