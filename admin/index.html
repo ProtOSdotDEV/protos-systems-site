@@ -45,30 +45,8 @@
     <p class="eyebrow">// restricted</p>
     <h1>Admin</h1>
 
-    <!-- LOGIN VIEW -->
-    <div id="login-view">
-        <p class="page-lead" style="margin-bottom: 2rem;">
-            Enter a GitHub personal access token with Contents read/write access
-            to <code>ProtOSdotDEV/protos-systems-site</code>.
-        </p>
-        <div class="form-status" id="login-status"></div>
-        <div class="field" style="margin-bottom: 1.5rem;">
-            <label for="token">GitHub Token</label>
-            <input type="password" id="token" placeholder="github_pat_..." autocomplete="off">
-        </div>
-        <button class="submit-btn" id="login-btn">
-            <span class="spinner"></span>
-            <span class="btn-label">Log in</span>
-        </button>
-    </div>
-
-    <!-- ADMIN VIEW -->
-    <div id="admin-view" style="display: none;">
-        <p class="page-lead" style="margin-bottom: 0.5rem;">
-            Logged in as <strong id="admin-user"></strong>.
-            <a href="#" id="logout-link">Log out</a>
-        </p>
-
+    <!-- ADMIN VIEW (access is gated by Cloudflare Zero Trust on /admin/*) -->
+    <div id="admin-view">
         <div class="form-status" id="post-status" style="margin-top: 1.5rem;"></div>
 
         <form id="log-form" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
@@ -105,23 +83,14 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const OWNER  = 'ProtOSdotDEV';
-const REPO   = 'protos-systems-site';
-const BRANCH = 'main';
-const LOGS_PATH = 'data/dev-logs.json';
+// Publishing goes through a same-origin endpoint behind Zero Trust.
+// The GitHub write token lives there as a server secret, never in this
+// public page. See admin/api/publish (Cloudflare Pages Function).
+const PUBLISH_ENDPOINT = '/admin/api/publish';
 
-const loginView   = document.getElementById('login-view');
-const adminView   = document.getElementById('admin-view');
-const tokenInput  = document.getElementById('token');
-const loginBtn    = document.getElementById('login-btn');
-const loginStatus = document.getElementById('login-status');
-const adminUser   = document.getElementById('admin-user');
-const logoutLink  = document.getElementById('logout-link');
-const logForm     = document.getElementById('log-form');
-const postBtn     = document.getElementById('post-btn');
-const postStatus  = document.getElementById('post-status');
-
-let currentUser = null;
+const logForm    = document.getElementById('log-form');
+const postBtn    = document.getElementById('post-btn');
+const postStatus = document.getElementById('post-status');
 
 document.getElementById('date').valueAsDate = new Date();
 
@@ -135,89 +104,6 @@ function setLoading(btn, loading) {
     btn.classList.toggle('loading', loading);
 }
 
-function b64EncodeUnicode(str) {
-    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-        (_, p1) => String.fromCharCode('0x' + p1)));
-}
-function b64DecodeUnicode(str) {
-    return decodeURIComponent(atob(str).split('').map(c =>
-        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
-}
-
-function getToken() {
-    return sessionStorage.getItem('gh_pat');
-}
-
-async function ghFetch(path, options = {}) {
-    return fetch(`https://api.github.com/repos/${OWNER}/${REPO}/${path}`, {
-        ...options,
-        headers: {
-            'Authorization': `Bearer ${getToken()}`,
-            'Accept': 'application/vnd.github+json',
-            ...options.headers,
-        },
-    });
-}
-
-async function verifyToken() {
-    try {
-        const res = await fetch('https://api.github.com/user', {
-            headers: { Authorization: `Bearer ${getToken()}`, Accept: 'application/vnd.github+json' },
-        });
-        if (!res.ok) return false;
-        const user = await res.json();
-        currentUser = user.login;
-        adminUser.textContent = user.login;
-
-        const repoRes = await ghFetch('');
-        return repoRes.ok;
-    } catch {
-        return false;
-    }
-}
-
-async function tryAutoLogin() {
-    if (getToken()) {
-        const ok = await verifyToken();
-        if (ok) showAdminView();
-    }
-}
-
-function showAdminView() {
-    loginView.style.display = 'none';
-    adminView.style.display = 'block';
-}
-
-loginBtn.addEventListener('click', async () => {
-    const token = tokenInput.value.trim();
-    if (!token) {
-        setStatus(loginStatus, 'Enter a token.', 'error');
-        return;
-    }
-    setLoading(loginBtn, true);
-    sessionStorage.setItem('gh_pat', token);
-
-    const ok = await verifyToken();
-    setLoading(loginBtn, false);
-
-    if (ok) {
-        setStatus(loginStatus, '', '');
-        showAdminView();
-    } else {
-        sessionStorage.removeItem('gh_pat');
-        setStatus(loginStatus, 'Invalid token or no access to this repo.', 'error');
-    }
-});
-
-logoutLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    sessionStorage.removeItem('gh_pat');
-    currentUser = null;
-    adminView.style.display = 'none';
-    loginView.style.display = 'block';
-    tokenInput.value = '';
-});
-
 logForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     setLoading(postBtn, true);
@@ -228,29 +114,16 @@ logForm.addEventListener('submit', async (e) => {
         date: document.getElementById('date').value,
         title: document.getElementById('title').value.trim(),
         body: document.getElementById('body').value.trim(),
-        author: currentUser,
     };
 
     try {
-        const getRes = await ghFetch(`contents/${LOGS_PATH}?ref=${BRANCH}`);
-        if (!getRes.ok) throw new Error('Could not read current logs file.');
-        const file = await getRes.json();
-        const current = JSON.parse(b64DecodeUnicode(file.content));
-
-        current.logs = current.logs || [];
-        current.logs.unshift(entry);
-
-        const putRes = await ghFetch(`contents/${LOGS_PATH}`, {
-            method: 'PUT',
-            body: JSON.stringify({
-                message: `Add dev log: ${entry.title}`,
-                content: b64EncodeUnicode(JSON.stringify(current, null, 2)),
-                sha: file.sha,
-                branch: BRANCH,
-            }),
+        const res = await fetch(PUBLISH_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(entry),
         });
 
-        if (!putRes.ok) throw new Error('Failed to commit log entry.');
+        if (!res.ok) throw new Error('Failed to publish log entry.');
 
         setStatus(postStatus, 'Published. The site will rebuild in about a minute.', 'success');
         logForm.reset();
@@ -261,8 +134,6 @@ logForm.addEventListener('submit', async (e) => {
         setLoading(postBtn, false);
     }
 });
-
-tryAutoLogin();
 </script>
 </body>
 </html>
