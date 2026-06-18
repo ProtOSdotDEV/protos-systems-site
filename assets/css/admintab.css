@@ -1,3 +1,14 @@
+:root {
+    --surface: #0D0D0DFF;
+    --border: #1F1F1FFF;
+    --text-bright: #FFFFFFFF;
+    --text-dim: #828282FF;
+    --green: #00FF41FF;
+    --green-dim: #00802AFF;
+    --green-glow: #00FF4114;
+    --mono: 'JetBrains Mono', 'Fira Mono', ui-monospace, monospace;
+}
+
 .wrap { max-width: 720px; }
 
 /* admin header */
