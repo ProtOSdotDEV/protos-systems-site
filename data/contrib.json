@@ -2,18 +2,27 @@
   "contributors": [
     {
       "name": "SkxllDxggy",
-      "description": "bleh bleh bleh",
-      "tags": ["OS dev", "gay", "linux :3"]
+      "status": "CEO",
+      "description": "Lead Programmer, OS dev, edgy i guess",
+      "tags": ["OS dev", "Arch Linux", "Jazzayy Swaggayyy"]
     },
     {
       "name": "Zinnaraux Kortig",
-      "description": "website development and general operations",
-      "tags": ["windows", "lesbian"]
+      "status": "COO",
+      "description": "Website Development, General Operations and QA",
+      "tags": ["Quality Assurance", "Website Design"]
     },
     {
-      "name": "viperhacksaws",
+      "name": "viperswagpaws",
+      "status": "CDO",
       "description": "graphic design, concept artist and small code contributions",
-      "tags": ["furry artist", "arch btw", "absolutely NOT gay"]
+      "tags": ["Furry Artist", "Arch Linux"]
+    },
+    {
+      "name": "Sine Ray",
+      "status": "PR Manager",
+      "description": "A silly little guy who knows lots about a little and a little about lots",
+      "tags": ["Protogen", "Emotional Support", "Silly"]
     }
   ]
 }
