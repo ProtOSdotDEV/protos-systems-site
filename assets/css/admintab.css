@@ -11,6 +11,25 @@
 
 .wrap { max-width: 720px; }
 
+/* admin panes + form layout */
+.admin-pane[hidden] { display: none; }
+.stack { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* keep <select> consistent with the shared .field inputs */
+.field select {
+    width: 100%;
+    font-family: var(--mono), sans-serif;
+    font-size: 0.85rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-bright);
+    padding: 0.65rem 0.8rem;
+    border-radius: 2px;
+    appearance: none;
+    cursor: pointer;
+}
+.field select:focus { outline: none; border-color: var(--green-dim); }
+
 /* admin header */
 .admin-header {
     display: flex;
