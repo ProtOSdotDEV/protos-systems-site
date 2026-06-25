@@ -4,7 +4,7 @@ const Lang = (() => {
 
     const SUPPORTED = { // added unfinished languages as comments. TODO: Finish other language translations.
         en: { name: 'English', flagText: 'GB', code: 'EN' },
-        // es: { name: 'Español', flagText: 'ES', code: 'ES' },
+        es: { name: 'Español', flagText: 'ES', code: 'ES' },
         // de: { name: 'Deutsch', flagText: 'DE', code: 'DE' },
         fr: { name: 'Français', flagText: 'FR', code: 'FR' },
         // ua: { name: 'Українська', flagText: 'UA', code: 'UA' },

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="See all of the ProtOS Systems Contributors."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributors // ProtOS Systems</title>
+    <link rel="stylesheet" href="/assets/css/pride.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/lang.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+</head>
+<body>
+    <div class="pride-banner">
+      <div class="pride-stripes">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span>
+      </div>
+      <div class="pride-content">
+        <span class="pride-comment">/*</span>
+        <span class="pride-flag">🏳️‍🌈</span>
+        <span class="pride-keyword">Feliz Mes del Orgullo</span>
+        <span class="pride-comment">//</span>
+        <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
+        <span class="pride-comment"> */</span>
+      </div>
+    </div>
+    <nav class="navbar">
+        <div class="navbar-row1">
+            <a class="site-title" href="/en/home/">ProtOS Systems</a>
+            <div class="lang-switcher">
+                <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                    <span class="lang-trigger-chevron"></span>
+                </button>
+                <div class="lang-menu" id="lang-menu" role="listbox"></div>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a class="tab" href="/es/home/">Resumen</a>
+            <a class="tab" href="/es/projects/">Proyectos</a>
+            <a class="tab" href="/es/dev-logs/">Bitácoras de desarrollo</a>
+            <a class="tab" href="/es/contact/">Contacto</a>
+            <a class="tab active" href="/es/contributors/">Colaboradores</a>
+        </div>
+    </nav>
+
+    <div class="wrap">
+      <p class="eyebrow">// Nuestros colaboradores maravillosos <3</p>
+      <h1>Colaboradores</h1>
+      <p class="page-lead" style="margin-bottom: 3rem;">
+        text goes here
+      </p>
+
+      <div class="grid" id="contrib-grid">
+        <p class="empty">Cargando personas :3</p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> ProtOS Systems. Todos derechos reservados.
+      </div>
+    </footer>
+
+    <script src="/assets/js/lang.js"></script>
+    <script>
+        const PAGE_LANG = 'es';
+        const PAGE_SLUG = 'contributors';
+
+        Lang.init(PAGE_LANG, PAGE_SLUG);
+        Lang.buildDropdown('lang-trigger', 'lang-menu', PAGE_LANG, PAGE_SLUG);
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const gridEl = document.getElementById('contrib-grid');
+
+      function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      fetch('/data/contrib.json')
+          .then(res => {
+              if (!res.ok) throw new Error('Failed to load contributors.');
+              return res.json();
+          })
+          .then(data => {
+              const contribs = data.contributors || [];
+              if (contribs.length === 0) {
+                  gridEl.innerHTML = '<p class="empty">No Contributors listed yet.</p>';
+                  return;
+              }
+              gridEl.innerHTML = contribs.map( p => {
+                  const tags = (p.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
+                  const inner = `
+                        <span class="pill">${escapeHtml(p.status || 'Planned')}</span>
+                        <h3 style="margin-top: 0.75rem;">${escapeHtml(p.name)}</h3>
+                        <p>${escapeHtml(p.description || '')}</p>
+                        <div class="tag-list">${tags}</div>
+                    `;
+                    return p.link
+                      ? `<a class="contrib-card" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">${inner}</a>`
+                      : `<div class="contrib-card">${inner}</div>`;
+                }).join('');
+              })
+              .catch(() => {
+                gridEl.innerHTML = '<p class="empty">Could not load contributors right now, try again later.</p>';
+              });
+    </script>
+</body>
+</html>
