@@ -28,52 +28,6 @@ body {
 a { color: var(--green); text-decoration: none; }
 a:hover { color: var(--text-bright); text-decoration: underline; }
 
-/* navbar */
-.navbar {
-    width: 100%;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0.85rem 1.5rem;
-    min-height: 3rem;
-}
-
-.site-title {
-    font-family: var(--mono), sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--green);
-    position: relative;
-    z-index: 1;
-    white-space: nowrap;
-}
-.site-title:hover { color: var(--text-bright); text-decoration: none; }
-
-.nav-links {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.25rem;
-    flex-wrap: nowrap;
-}
-
-.tab {
-    color: var(--text-dim);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.4rem 0.85rem;
-    border-radius: 2px;
-    transition: color 0.15s, background 0.15s;
-}
-.tab:hover { color: var(--green); text-decoration: none; background: var(--green-glow); }
-.tab.active { color: var(--green); background: var(--green-glow); border: 1px solid var(--green-dim); }
-
 /* layout */
 .wrap {
     max-width: 820px;
@@ -350,6 +304,4 @@ select option { background: var(--surface); }
 /* responsive */
 @media (max-width: 600px) {
     h1 { font-size: 1.6rem; }
-    .nav-links { position: static; transform: none; }
-    .navbar { flex-wrap: wrap; gap: 0.75rem; }
 }

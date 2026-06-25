@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="/assets/css/pride.css" rel="stylesheet">
-    <link href="/assets/css/nav.css" rel="stylesheet">
     <link href="/assets/css/styles.css" rel="stylesheet">
+    <link href="/assets/css/lang.css" rel="stylesheet">
+    <link href="/assets/css/nav.css" rel="stylesheet">
 </head>
 <body>
 <div class="pride-banner">
@@ -29,7 +30,16 @@
     </div>
 </div>
 <nav class="navbar">
-    <a class="site-title" href="/en/home/">ProtOS Systems</a>
+    <div class="navbar-row1">
+        <a class="site-title" href="/en/home/">ProtOS Systems</a>
+        <div class="lang-switcher">
+            <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                <span class="lang-trigger-chevron"></span>
+            </button>
+            <div class="lang-menu" id="lang-menu" role="listbox"></div>
+        </div>
+    </div>
     <div class="nav-links">
         <a class="tab" href="/en/home/">Overview</a>
         <a class="tab" href="/en/projects/">Projects</a>
@@ -59,7 +69,14 @@
     </div>
 </footer>
 
+<script src="/assets/js/lang.js"></script>
 <script>
+    const PAGE_LANG = 'en';
+    const PAGE_SLUG = 'dev-logs';
+
+    Lang.init(PAGE_LANG, PAGE_SLUG);
+    Lang.buildDropdown('lang-trigger', 'lang-menu', PAGE_LANG, PAGE_SLUG);
+
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const listEl = document.getElementById('log-list');

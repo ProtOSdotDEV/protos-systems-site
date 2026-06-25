@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <title>ProtOS Systems</title>
     <meta name="description" content="Building low-level systems, deliberately."/>
-    <link rel="stylesheet" href="/assets/css/styles.css"/>
+    <script src="/assets/js/lang.js"></script>
     <script>
         // const lang = localStorage.getItem('lang') || 'en'; <- for future language integration
-        const lang = 'en';
-        window.location.replace(lang + '/home/')
+        const lang = Lang.getPreferredLang();
+        if (!window.location.pathname.includes('/home/')) {
+            window.location.replace('/' + lang + '/home/');
+        }
     </script>
 </head>
 <body></body>

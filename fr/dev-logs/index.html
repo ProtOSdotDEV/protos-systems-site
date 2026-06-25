@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Logs de développment de ProtOS Systems"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs de développment // ProtOS Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="/assets/css/pride.css" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link href="/assets/css/lang.css" rel="stylesheet">
+    <link href="/assets/css/nav.css" rel="stylesheet">
+</head>
+<body>
+    <div class="pride-banner">
+        <div class="pride-stripes">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span>
+        </div>
+        <div class="pride-content">
+            <span class="pride-comment">/*</span>
+            <span class="pride-flag">🏳️‍🌈</span>
+            <span class="pride-keyword">Joyeux mois des fiertés</span>
+            <span class="pride-comment">//</span>
+            <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
+            <span class="pride-comment"> */</span>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="navbar-row1">
+            <a class="site-title" href="/fr/home/">ProtOS Systems</a>
+            <div class="lang-switcher">
+                <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                    <span class="lang-trigger-chevron"></span>
+                </button>
+                <div class="lang-menu" id="lang-menu" role="listbox"></div>
+            </div>
+        </div>
+        <div class="nav-links" id="nav">
+            <a class="tab" href="/fr/home/">Vue d'ensemble</a>
+            <a class="tab" href="/fr/projects/">Projets</a>
+            <a class="tab active" href="/fr/dev-logs/">Logs de développment</a>
+            <a class="tab" href="/fr/contact/">Contact</a>
+            <a class="tab" href="/fr/contributors/">Contributeurs</a>
+        </div>
+    </nav>
+
+    <div class="wrap">
+        <p class="eyebrow">// Journaux des Modifications</p>
+        <h1>Logs de développement</h1>
+        <p class="page-lead" style="margin-bottom: 3rem;">
+            Notes de l'établi, mises à jour à
+            propos des projets en cours, des projets
+            sur lesquels nous bloquons, et n'importe quel
+            autre chose se passant au sein de ProtOS Systems.
+        </p>
+
+        <div id="log-list">
+            <p class="empty">Loading logs...</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            &copy; <span id="year"></span> ProtOS Systems. Tout droits réservés.
+        </div>
+    </footer>
+
+    <script src="/assets/js/lang.js"></script>
+    <script>
+        const PAGE_LANG = 'fr';
+        const PAGE_SLUG = 'dev-logs';
+
+        Lang.init(PAGE_LANG, PAGE_SLUG);
+        Lang.buildDropdown('lang-trigger', 'lang-menu', PAGE_LANG, PAGE_SLUG);
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const listEl = document.getElementById('log-list');
+
+        function formatDate(dateStr) {
+            const d = new Date(dateStr + 'T00:00:00');
+            if (isNaN(d)) return dateStr;
+            return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        fetch('/data/dev-logs.json')
+            .then(res => {
+            if (!res.ok) throw new Error('Failed to load logs');
+            return res.json();
+        })
+            .then(data => {
+                const logs = (data.logs || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+
+                if (logs.length === 0) {
+                    listEl.innerHTML = '<p class="empty">No developer logs yet. Check back soon.</p>';
+                    return;
+                }
+
+                listEl.innerHTML = logs.map(log => `
+                    <div class="log">
+                        <div class="log-meta">
+                        <span>${formatDate(log.date)}</span>
+                        <span class="project">${escapeHtml(log.project)}</span>
+                            ${log.author ? `<span>by ${escapeHtml(log.author)}</span>` : ''}
+                        </div>
+                        <h3>${escapeHtml(log.title)}</h3>
+                        <p>${escapeHtml(log.body)}</p>\
+                    </div>
+                `).join('');
+            })
+            .catch(() => {
+                listEl.innerHTML = '<p class="empty">Could not load developer logs right now. Try again later.</p>';
+            });
+
+    </script>
+</body>
+</html>
