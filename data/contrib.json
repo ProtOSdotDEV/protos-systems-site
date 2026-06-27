@@ -6,7 +6,8 @@
       "description": "Lead Programmer, OS dev, edgy i guess",
       "pfp": "/assets/img/pfps/sd/skxll.png",
       "tags": ["OS dev", "Arch Linux", "Jazzayy Swaggayyy"],
-      "flag": "gay"
+      "flag": "gay",
+      "pro": "he/him"
     },
     {
       "name": "Zinnaraux Kortig",
@@ -14,7 +15,8 @@
       "description": "Website Development, General Operations and QA",
       "pfp": "/assets/img/pfps/zk/zinn.png",
       "tags": ["Quality Assurance", "Website Design"],
-      "flag": "lesbian"
+      "flag": "pan",
+      "pro": "she/her"
     },
     {
       "name": "viperhacksaws",
@@ -22,7 +24,8 @@
       "description": "Graphic design, concept art, and small code contributions",
       "pfp": "/assets/img/pfps/vhs/viper.png",
       "tags": ["Furry Artist", "Arch Linux"],
-      "flag": "hetflex"
+      "flag": "hetflex",
+      "pro": "he/him"
     },
     {
       "name": "Sine Ray",
@@ -30,7 +33,8 @@
       "description": "A silly little guy who knows lots about a little and a little about lots",
       "pfp": "/assets/img/pfps/sr/sine.png",
       "tags": ["Protogen", "Emotional Support", "Silly"],
-      "flag": "gay"
+      "flag": "gay",
+      "pro": "he/him"
     },
     {
       "name": "Bonesman",
@@ -38,7 +42,8 @@
       "description": "french",
       "pfp": "/assets/img/pfps/bm/bones.png",
       "tags": ["Translator"],
-      "flag": "genflu"
+      "flag": "genflu",
+      "pro": "he/they/she"
     }
   ]
 }

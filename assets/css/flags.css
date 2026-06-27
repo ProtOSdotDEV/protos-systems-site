@@ -9,6 +9,10 @@
     #d52d00 0 20%, #ff9a56 20% 40%, #ffffff 40% 60%,
     #d362a4 60% 80%, #a30262 80% 100%);
 }
+.flag-pan {
+    background: linear-gradient(to bottom,
+    #FF218C 0 33.33%, #FFD800 33.33% 66.67%, #21B1FF 66.67% 100%);
+}
 
 .flag-trans {
     background: linear-gradient(to bottom,
