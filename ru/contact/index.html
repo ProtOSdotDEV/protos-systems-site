@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Contact ProtOS Systems"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/css/pride.css">
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/lang.css">
+        <link rel="stylesheet" href="/assets/css/nav.css">
+        <title>Contact // ProtOS Systems</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --bg:          #000000;
+                --surface:     #0d0d0d;
+                --border:      #1f1f1f;
+                --green:       #00ff41;
+                --green-dim:   #00802a;
+                --green-glow:  rgba(0, 255, 65, 0.08);
+                --text:        #d4d4d4;
+                --text-dim: #828282;
+                --text-bright: #ffffff;
+                --mono: 'JetBrains Mono', 'Fira Mono', ui-monospace, monospace;
+                --error:       #ff4444;
+            }
+
+            /* reset */
+            *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+            html { font-size: 16px; scroll-behavior: smooth; }
+
+            body {
+                font-family: 'Montserrat', sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.7;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            a { color: var(--green); text-decoration: none; }
+            a:hover { color: var(--text-bright); text-decoration: underline; }
+
+            /* wrap */
+            .wrap {
+                max-width: 560px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 3.5rem 1.5rem 4rem;
+                flex: 1;
+            }
+
+            /* header */
+
+            .content-col {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+
+            .eyebrow {
+                font-family: var(--mono), sans-serif;
+                font-size: 0.68rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--green-dim);
+                margin-bottom: 0.75rem;
+                font-weight: 500;
+            }
+
+            h1 {
+                font-size: 2.1rem;
+                font-weight: 900;
+                letter-spacing: -0.04em;
+                line-height: 1.15;
+                color: var(--text-bright);
+                margin-bottom: 1rem;
+            }
+
+            .page-lead {
+                font-size: 0.93rem;
+                color: var(--text-dim);
+                line-height: 1.85;
+                max-width: 52ch;
+                margin-bottom: 3rem;
+            }
+
+            /* contact form */
+            .contact-form {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+            }
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            label {
+                font-family: var(--mono), sans-serif;
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--green-dim);
+            }
+
+            input, textarea, select {
+                background: var(--surface);
+                border: 1px solid var(--border);
+                color: var(--text-bright);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.9rem;
+                font-weight: 500;
+                padding: 0.75rem 1rem;
+                border-radius: 2px;
+                outline: none;
+                transition: border-color 0.15s, background 0.15s;
+                width: 100%;
+            }
+
+            input::placeholder, textarea::placeholder {
+                color: var(--text-dim);
+                font-weight: 400;
+            }
+
+            input:focus, textarea:focus, select:focus {
+                border-color: var(--green-dim);
+                background: rgba(0, 255, 65, 0.03);
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 160px;
+                line-height: 1.7;
+            }
+
+            select {
+                appearance: none;
+                cursor: pointer;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300802a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 1rem center;
+                padding-right: 2.5rem;
+            }
+
+            select option { background: var(--surface); }
+
+            /* submit */
+            .submit-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.6rem;
+                background: transparent;
+                border: 1px solid var(--green-dim);
+                color: var(--green);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                padding: 0.75rem 1.75rem;
+                border-radius: 2px;
+                cursor: pointer;
+                transition: background 0.15s, border-color 0.15s, color 0.15s;
+                align-self: flex-start;
+            }
+
+            .submit-btn:hover:not(:disabled) {
+                background: var(--green-glow);
+                border-color: var(--green);
+                color: var(--text-bright);
+            }
+
+            .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+            .submit-btn .spinner {
+                width: 12px;
+                height: 12px;
+                border: 1.5px solid var(--green-dim);
+                border-top-color: var(--green);
+                border-radius: 50%;
+                animation: spin 0.7s linear infinite;
+                display: none;
+            }
+            .submit-btn.loading .spinner { display: block; }
+            @keyframes spin { to { transform: rotate(360deg); } }
+
+            /* status */
+            .form-status {
+                display: none;
+                font-family: var(--mono), sans-serif;
+                font-size: 0.75rem;
+                font-weight: 600;
+                letter-spacing: 0.06em;
+                padding: 0.85rem 1rem;
+                border-radius: 2px;
+                border-left: 2px solid;
+            }
+
+            /* success screen */
+            .success-screen {
+                display: none;
+                flex-direction: column;
+                gap: 1.25rem;
+                width: 100%;
+                padding: 2.5rem;
+                border: 1px solid var(--green-dim);
+                background: var(--green-glow);
+                border-radius: 2px;
+            }
+            .success-eyebrow {
+                font-family: var(--mono), sans-serif;
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--green-dim);
+            }
+
+            .success-title {
+                font-size: 1.5rem;
+                font-weight: 900;
+                letter-spacing: -0.03em;
+                color: var(--green);
+                line-height: 1.2;
+            }
+
+            .success-body {
+                font-size: 0.88rem;
+                color: var(--text-dim);
+                line-height: 1.85;
+            }
+
+            .success-back {
+                display: inline-flex;
+                align-items: center;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--text-dim);
+                background: transparent;
+                border: 1px solid var(--border);
+                padding: 0.6rem 1.25rem;
+                border-radius: 2px;
+                cursor: pointer;
+                align-self: flex-start;
+                margin-top: 0.5rem;
+                transition: color 0.15s, border-color 0.15s;
+                text-decoration: none;
+            }
+            .success-back:hover { color: var(--green); border-color: var(--green-dim); text-decoration: none; }
+
+            /* divider */
+            .divider {
+                border: none;
+                border-top: 1px solid var(--border);
+                margin: 3rem 0;
+            }
+
+            .success-screen.visible ~ #divider {
+                margin-top: 3rem;
+            }
+
+            /* direct contact */
+            .direct-card {
+                display: flex;
+                flex-direction: column;
+                gap: 0.65rem;
+                width: 100%;
+                padding: 1.5rem;
+                border: 1px solid var(--border);
+                border-radius: 2px;
+                background: var(--surface);
+            }
+
+            .direct-label {
+                font-family: var(--mono), sans-serif;
+                font-size: 0.62rem;
+                font-weight: 700;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--green-dim);
+            }
+
+            .direct-email-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.6rem;
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: var(--text-dim);
+                transition: color 0.15s;
+                text-decoration: none;
+            }
+            .direct-email-link:hover { color: var(--green); text-decoration: none; }
+
+            .direct-email-icon {
+                font-size: 0.85rem;
+                color: var(--green-dim);
+                transition: color 0.15s;
+            }
+            .direct-email-link:hover .direct-email-icon { color: var(--green); }
+
+            /* footer */
+            .footer {
+                width: 100%;
+                background: var(--surface);
+                border-top: 1px solid var(--border);
+                padding: 1.1rem 1.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.2rem;
+            }
+
+            .footer-bottom {
+                font-size: 0.65rem;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--text-dim);
+            }
+
+            /* responsive */
+            @media (max-width: 600px) {
+                h1 { font-size: 1.6rem; }
+                .nav-links { position: static; transform: none; }
+                .navbar { flex-wrap: wrap; gap: 0.75rem; }
+            }
+        </style>
+    </head>
+<body>
+    <div class="pride-banner">
+        <div class="pride-stripes">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span>
+        </div>
+        <div class="pride-content">
+            <span class="pride-comment">/*</span>
+            <span class="pride-flag">🏳️‍🌈</span>
+            <span class="pride-keyword">Happy Pride Month</span>
+            <span class="pride-comment">//</span>
+            <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
+            <span class="pride-comment"> */</span>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="navbar-row1">
+            <a class="site-title" href="/ru/home/">ProtOS Systems</a>
+            <div class="lang-switcher">
+                <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                    <span class="lang-trigger-chevron"></span>
+                </button>
+                <div class="lang-menu" id="lang-menu" role="listbox"></div>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a class="tab" href="/ru/home/">Overview</a>
+            <a class="tab" href="/ru/projects/">Projects</a>
+            <a class="tab" href="/ru/dev-logs/">Developer Logs</a>
+            <a class="tab active" href="/ru/contact">Contact</a>
+            <a class="tab" href="/ru/contributors/">Contributors</a>
+        </div>
+    </nav>
+
+    <div class="wrap">
+        <p class="eyebrow">// get in touch</p>
+        <h1>Contact</h1>
+        <p class="page-lead">
+            Have a question about a project, want to collaborate, or want to reach out?
+            Fill out this form below and we'll get back to you.
+        </p>
+
+        <div class="content-col">
+        <div class="form-status" id="form-status"></div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required/>
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required/>
+            </div>
+            <div class="field">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select a topic...</option>
+                    <option value="General Enquiry">General Enquiry</option>
+                    <option value="Project Collaboration">Project Collaboration</option>
+                    <option value="ProtOS">ProtOS</option>
+                    <option value="Protogen Hardware/Visors">Protogen Hardware/Visors</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submit-btn">
+                <span class="spinner"></span>
+                <span class="btn-label">Send Message</span>
+            </button>
+        </form>
+
+        <div class="success-screen" id="success-screen">
+            <p class="success-eyebrow">// transmission complete</p>
+            <h2 class="success-title">Message Sent.</h2>
+            <p class="success-body">
+                Thanks for reaching out. We've received your message and will get back to you at the email address you provided as soon as we can.
+            </p>
+            <a href="/" class="success-back">← Back to home</a>
+        </div>
+
+        <hr class="divider" id="divider" />
+
+        <div class="direct-card" id="direct-card" style="margin-top: 0;">
+            <p class="direct-label">Or reach us directly</p>
+            <a class="direct-email-link" href="mailto:contact@protos-systems.dev">
+                <span class="direct-email-icon">✉</span>
+                contact@protos-systems.dev
+            </a>
+        </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="/assets/js/lang.js"></script>
+    <script>
+        const PAGE_LANG = 'ru';
+        const PAGE_SLUG = 'contact';
+
+        Lang.init(PAGE_LANG, PAGE_SLUG);
+        Lang.buildDropdown('lang-trigger', 'lang-menu', PAGE_LANG, PAGE_SLUG);
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const FORMSPREE_ID = 'mgobrbyn';
+
+        // test mode
+        const TEST_MODE = false;
+
+        const form          = document.getElementById('contact-form');
+        const btn           = document.getElementById('submit-btn');
+        const statusEl      = document.getElementById('form-status');
+        const successScreen = document.getElementById('success-screen');
+        const divider       = document.getElementById('divider');
+
+        function showError(msg) {
+            statusEl.className = 'form-status error';
+            statusEl.textContent = msg;
+            statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function showSuccess() {
+            form.style.display = 'none';
+            statusEl.style.display = 'none';
+            divider.style.display = 'none';
+            document.getElementById('direct-card').style.marginTop = '3rem';
+            successScreen.classList.add('visible');
+            successScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function validate() {
+            let ok = true;
+            ['name', 'email', 'subject', 'message'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el.value.trim()) {
+                    el.classList.add('invalid');
+                    ok = false;
+                } else {
+                    el.classList.remove('invalid');
+                }
+            });
+            const emailEl = document.getElementById('email');
+            if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+                emailEl.classList.add('invalid');
+                ok = false;
+            }
+            return ok;
+        }
+
+        form.querySelectorAll('input, textarea, select').forEach(el => {
+            el.addEventListener('input', () => el.classList.remove('invalid'));
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            statusEl.className = 'form-status';
+
+            if (!validate()) {
+                showError('Please fill in all fields before sending.');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.classList.add('loading');
+
+            // TEST MODE: skip fetch, show success immediately
+            if (TEST_MODE) {
+                await new Promise(r => setTimeout(r, 800));
+                btn.disabled = false;
+                btn.classList.remove('loading');
+                showSuccess();
+                return;
+            }
+
+            const data = {
+                name:    document.getElementById('name').value.trim(),
+                email:   document.getElementById('email').value.trim(),
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value.trim(),
+            };
+
+            try {
+                const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body:    JSON.stringify(data),
+                });
+
+                if (res.ok) {
+                    showSuccess();
+                } else {
+                    const json = await res.json().catch(() => ({}));
+                    showError(json.error || 'Something went wrong. Please try again or email us directly.');
+                    btn.disabled = false;
+                    btn.classList.remove('loading');
+                }
+            } catch {
+                showError('Network error. Please check your connection and try again.');
+                btn.disabled = false;
+                btn.classList.remove('loading');
+            }
+        });
+    </script>
+</body>
+</html>

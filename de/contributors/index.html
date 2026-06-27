@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/nav.css">
     <link rel="stylesheet" href="/assets/css/pride.css">
+    <link rel="stylesheet" href="/assets/css/flags.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -81,15 +82,21 @@
           }
           gridEl.innerHTML = contribs.map( p => {
               const tags = (p.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
+              const pfp = p.pfp
+                  ? `<img class="contrib-pfp" src="${escapeHtml(p.pfp)}" alt="${escapeHtml(p.name)}" loading="lazy">`
+                  : `<div class="contrib-pfp contrib-pfp-fallback">${escapeHtml((p.name || '?').slice(0, 1))}</div>`;
               const inner = `
+                    ${pfp}
                     <span class="pill">${escapeHtml(p.status || 'Planned')}</span>
                     <h3 style="margin-top: 0.75rem;">${escapeHtml(p.name)}</h3>
                     <p>${escapeHtml(p.description || '')}</p>
                     <div class="tag-list">${tags}</div>
                 `;
-                return p.link
+                const flag = escapeHtml(p.flag || 'rainbow');
+                const card = p.link
                   ? `<a class="contrib-card" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">${inner}</a>`
                   : `<div class="contrib-card">${inner}</div>`;
+                return `<div class="contrib-cell flag-${flag}">${card}</div>`;
             }).join('');
           })
           .catch(() => {

@@ -1,0 +1,40 @@
+.flag-gay {
+    background: linear-gradient(to bottom,
+    #078d70 0 20%, #98e9c1 20% 40%, #ffffff 40% 60%,
+    #7bade2 60% 80%, #3d1a78 80% 100%);
+}
+
+.flag-lesbian {
+    background: linear-gradient(to bottom,
+    #d52d00 0 20%, #ff9a56 20% 40%, #ffffff 40% 60%,
+    #d362a4 60% 80%, #a30262 80% 100%);
+}
+
+.flag-trans {
+    background: linear-gradient(to bottom,
+    #5bcefa 0 20%, #f5a9b8 20% 40%, #ffffff 40% 60%,
+    #f5a9b8 60% 80%, #5bcefa 80% 100%);
+}
+
+.flag-hetflex {
+    background:
+    linear-gradient(to bottom,
+    #ed2224 0 16.66%, #f3801f 16.66% 33.33%, #ffeb00 33.33% 50%,
+    #5bb946 50% 66.66%, #0056a8 66.66% 83.33%, #a01f93 83.33% 100%)
+    center / 20% 100% no-repeat,
+    linear-gradient(to bottom,
+    #000000 0 16.66%, #303030 16.66% 33.33%, #666666 33.33% 50%,
+    #999999 50% 66.66%, #bdbdbd 66.66% 83.33%, #ffffff 83.33% 100%);
+}
+
+.flag-rainbow {
+    background: linear-gradient(to bottom,
+    #e40303 0 16.66%, #ff8c00 16.66% 33.33%, #ffeb02 33.33% 50%,
+    #008026 50% 66.66%, #004dff 66.66% 83.33%, #750787 83.33% 100%);
+}
+
+.flag-genflu {
+    background: linear-gradient(to bottom,
+    #ff75a2 0 20%, #ffffff 20% 40%, #be18d6 40% 60%,
+    #000000 60% 80%, #333ebd 80% 100%);
+}

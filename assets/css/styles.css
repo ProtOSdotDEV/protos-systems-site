@@ -122,6 +122,43 @@ section p { font-size: 0.93rem; color: var(--text-dim); line-height: 1.85; }
 .project-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.4rem; }
 .project-card p { color: var(--text-dim); font-size: 0.88rem; }
 
+
+.contrib-cell {
+    padding: 6px;
+    border-radius: 7px;
+    display: flex;
+}
+
+.contrib-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.5rem;
+    color: var(--text);
+    text-align: center;
+    transition: border-color 0.15s, background 0.15s;
+}
+.contrib-card:hover { text-decoration: none; border-color: var(--green-dim); background: var(--green-glow); }
+.contrib-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.4rem; }
+.contrib-card p { color: var(--text-dim); font-size: 0.88rem; }
+
+.contrib-pfp {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--green-dim);
+    display: block;
+    margin: 0 auto 0.9rem;
+}
+.contrib-pfp-fallback {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--border);
+    color: var(--text-dim);
+    font-family: var(--mono), sans-serif;
+    font-size: 1.6rem; font-weight: 700;
+}
+
 /* status pill + tags */
 .pill {
     display: inline-block;

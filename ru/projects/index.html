@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Projects from ProtOS Systems"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects // ProtOS Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="/assets/css/pride.css" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link href="/assets/css/lang.css" rel="stylesheet">
+    <link href="/assets/css/nav.css" rel="stylesheet">
+</head>
+<body>
+<div class="pride-banner">
+    <div class="pride-stripes">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span>
+    </div>
+    <div class="pride-content">
+        <span class="pride-comment">/*</span>
+        <span class="pride-flag">🏳️‍🌈</span>
+        <span class="pride-keyword">Happy Pride Month</span>
+        <span class="pride-comment">//</span>
+        <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
+        <span class="pride-comment"> */</span>
+    </div>
+</div>
+<nav class="navbar">
+    <nav class="navbar-row1">
+        <a class="site-title" href="/en/home/">ProtOS Systems</a>
+        <div class="lang-switcher">
+            <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                <span class="lang-trigger-chevron"></span>
+            </button>
+            <div class="lang-menu" id="lang-menu" role="listbox"></div>
+        </div>
+    </nav>
+    <div class="nav-links" id="nav">
+        <a class="tab" href="/ru/home/">Overview</a>
+        <a class="tab active">Projects</a>
+        <a class="tab" href="/ru/dev-logs/">Developer Logs</a>
+        <a class="tab" href="/ru/contact/">Contact</a>
+        <a class="tab" href="/ru/contributors/">Contributors</a>
+    </div>
+</nav>
+
+<div class="wrap">
+    <p class="eyebrow">// the workbench</p>
+    <h1>Projects</h1>
+    <p class="page-lead" style="margin-bottom: 3rem;">
+        Everything ProtOS Systems is currently building, has shipped, or is
+        planning to get to eventually.
+    </p>
+
+    <div class="grid" id="project-grid">
+        <p class="empty">Loading projects...</p>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-bottom">
+        &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
+    </div>
+</footer>
+
+<script src="/assets/js/lang.js"></script>
+<script>
+    const PAGE_LANG = 'ru';
+    const PAGE_SLUG = 'projects';
+
+    Lang.init(PAGE_LANG, PAGE_SLUG);
+    Lang.buildDropdown('lang-trigger', 'lang-menu', PAGE_LANG, PAGE_SLUG);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const gridEl = document.getElementById('project-grid');
+
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    fetch('/data/projects.json')
+        .then(res => {
+            if (!res.ok) throw new Error('Failed to load projects');
+            return res.json();
+        })
+        .then(data => {
+            const projects = data.projects || [];
+
+            if (projects.length === 0) {
+                gridEl.innerHTML = '<p class="empty">No projects listed yet.</p>';
+                return;
+            }
+
+            gridEl.innerHTML = projects.map(p => {
+                const tags = (p.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
+                const inner = `
+                    <span class="pill">${escapeHtml(p.status || 'Planned')}</span>
+                    <h3 style="margin-top: 0.75rem;">${escapeHtml(p.name)}</h3>
+                    <p>${escapeHtml(p.description || '')}</p>
+                    <div class="tag-list">${tags}</div>
+                `;
+                return p.link
+                    ? `<a class="project-card" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">${inner}</a>`
+                    : `<div class="project-card">${inner}</div>`;
+            }).join('');
+        })
+        .catch(() => {
+            gridEl.innerHTML = '<p class="empty">Could not load projects right now. Try again later.</p>';
+        });
+</script>
+</body>
+</html>

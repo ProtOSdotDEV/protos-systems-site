@@ -4,31 +4,41 @@
       "name": "SkxllDxggy",
       "status": "CEO",
       "description": "Lead Programmer, OS dev, edgy i guess",
-      "tags": ["OS dev", "Arch Linux", "Jazzayy Swaggayyy"]
+      "pfp": "/assets/img/pfps/sd/skxll.png",
+      "tags": ["OS dev", "Arch Linux", "Jazzayy Swaggayyy"],
+      "flag": "gay"
     },
     {
       "name": "Zinnaraux Kortig",
       "status": "COO",
       "description": "Website Development, General Operations and QA",
-      "tags": ["Quality Assurance", "Website Design"]
+      "pfp": "/assets/img/pfps/zk/zinn.png",
+      "tags": ["Quality Assurance", "Website Design"],
+      "flag": "lesbian"
     },
     {
       "name": "viperhacksaws",
       "status": "CDO",
-      "description": "Graphic Design, Concept Artist and Small Code Contributions",
-      "tags": ["Furry Artist", "Arch Linux"]
+      "description": "Graphic design, concept art, and small code contributions",
+      "pfp": "/assets/img/pfps/vhs/viper.png",
+      "tags": ["Furry Artist", "Arch Linux"],
+      "flag": "hetflex"
     },
     {
       "name": "Sine Ray",
       "status": "PR Manager",
       "description": "A silly little guy who knows lots about a little and a little about lots",
-      "tags": ["Protogen", "Emotional Support", "Silly"]
+      "pfp": "/assets/img/pfps/sr/sine.png",
+      "tags": ["Protogen", "Emotional Support", "Silly"],
+      "flag": "gay"
     },
     {
       "name": "Bonesman",
       "status": "French Translation Lead",
       "description": "french",
-      "tags": ["Translator"]
+      "pfp": "/assets/img/pfps/bm/bones.png",
+      "tags": ["Translator"],
+      "flag": "genflu"
     }
   ]
 }
