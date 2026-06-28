@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Page not found - ProtOS Systems"/>
+    <meta name="description" content="Página no encontrada."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/pride.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/lang.css">
     <link rel="stylesheet" href="/assets/css/nav.css">
     <title>404 // ProtOS Systems</title>
@@ -40,51 +41,6 @@
 
         a { color: var(--green); text-decoration: none; }
         a:hover { color: var(--text-bright); text-decoration: underline; }
-
-        /* navbar */
-        .navbar {
-            width: 100%;
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 0.85rem 1.5rem;
-            min-height: 3rem;
-        }
-
-        .site-title {
-            font-family: var(--mono), sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--green);
-            position: relative;
-            z-index: 1;
-            white-space: nowrap;
-        }
-        .site-title:hover { color: var(--text-bright); text-decoration: none; }
-
-        .nav-links {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.25rem;
-            flex-wrap: nowrap;
-        }
-
-        .tab {
-            color: var(--text-dim);
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.4rem 0.85rem;
-            border-radius: 2px;
-            transition: color 0.15s, background 0.15s;
-        }
-        .tab:hover { color: var(--green); text-decoration: none; background: var(--green-glow); }
 
         /* center everything vertically */
         .wrap {
@@ -211,11 +167,6 @@
             color: var(--text-bright);
             text-decoration: none;
         }
-
-        @media (max-width: 600px) {
-            .nav-links { position: static; transform: none; }
-            .navbar { flex-wrap: wrap; gap: 0.75rem; }
-        }
     </style>
 </head>
 <body>
@@ -239,7 +190,7 @@
             <a class="site-title" href="/es/home/">ProtOS Systems</a>
             <div class="lang-switcher">
                 <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                    <span class="lang-trigger-code" id="lang-trigger-code">ES</span>
                     <span class="lang-trigger-chevron"></span>
                 </button>
                 <div class="lang-menu" id="lang-menu" role="listbox"></div>

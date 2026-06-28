@@ -172,7 +172,7 @@ section p { font-size: 0.93rem; color: var(--text-dim); line-height: 1.85; }
     border: 1px solid var(--green-dim);
     color: var(--green-dim);
 }
-.tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; align-content: center; justify-content: center; }
 .tag {
     font-family: var(--mono), sans-serif;
     font-size: 0.6rem;
@@ -337,6 +337,13 @@ select option { background: var(--surface); }
 }
 .form-status.error { display: block; color: var(--error); border-color: var(--error); background: rgba(255, 68, 68, 0.06); }
 .form-status.success { display: block; color: var(--green); border-color: var(--green-dim); background: var(--green-glow); }
+
+.newsletter-input.invalid { border-color: #ff4444; }
+.newsletter-btn.loading .btn-label { opacity: 0.6; }
+.newsletter-status.success {display: block;color: var(--green);border-color: var(--green);background: var(--green-glow);}
+.newsletter-status.error {display: block;color: #ff4444;border-color: #ff4444;background: rgba(255, 68, 68, 0.06);}
+
+.form-status.error {display: block;color: var(--error);border-color: var(--error);background: rgba(255, 68, 68, 0.06);}
 
 /* responsive */
 @media (max-width: 600px) {

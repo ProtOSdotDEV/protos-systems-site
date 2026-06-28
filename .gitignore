@@ -14,4 +14,4 @@ yarn-error.log*
 .env
 .env-local
 
-github_ignore/
+.github_ignore/

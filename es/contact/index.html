@@ -2,13 +2,13 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="Contact ProtOS Systems"/>
+        <meta name="description" content="Contacto ProtOS Systems"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/assets/css/pride.css">
         <link rel="stylesheet" href="/assets/css/styles.css">
         <link rel="stylesheet" href="/assets/css/lang.css">
         <link rel="stylesheet" href="/assets/css/nav.css">
-        <title>Contact // ProtOS Systems</title>
+        <title>Contacto // ProtOS Systems</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -216,6 +216,9 @@
                 background: var(--green-glow);
                 border-radius: 2px;
             }
+            .success-screen.visible { /* DO NOT REMOVE */
+                display: flex;
+            }
             .success-eyebrow {
                 font-family: var(--mono), sans-serif;
                 font-size: 0.65rem;
@@ -330,13 +333,6 @@
                 text-transform: uppercase;
                 color: var(--text-dim);
             }
-
-            /* responsive */
-            @media (max-width: 600px) {
-                h1 { font-size: 1.6rem; }
-                .nav-links { position: static; transform: none; }
-                .navbar { flex-wrap: wrap; gap: 0.75rem; }
-            }
         </style>
     </head>
 <body>
@@ -360,7 +356,7 @@
             <a class="site-title" href="/es/home/">ProtOS Systems</a>
             <div class="lang-switcher">
                 <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                    <span class="lang-trigger-code" id="lang-trigger-code">ES</span>
                     <span class="lang-trigger-chevron"></span>
                 </button>
                 <div class="lang-menu" id="lang-menu" role="listbox"></div>
@@ -507,7 +503,7 @@
             statusEl.className = 'form-status';
 
             if (!validate()) {
-                showError('Please fill in all fields before sending.');
+                showError('Por favor, completa todos los campos antes de enviar.');
                 return;
             }
 
@@ -541,12 +537,12 @@
                     showSuccess();
                 } else {
                     const json = await res.json().catch(() => ({}));
-                    showError(json.error || 'Something went wrong. Please try again or email us directly.');
+                    showError(json.error || 'Algo salió mal. Inténtalo de nuevo o envíanos un correo electrónico directamente.');
                     btn.disabled = false;
                     btn.classList.remove('loading');
                 }
             } catch {
-                showError('Network error. Please check your connection and try again.');
+                showError('Error de red. Por favor, revisa tu conexión e inténtalo de nuevo.');
                 btn.disabled = false;
                 btn.classList.remove('loading');
             }

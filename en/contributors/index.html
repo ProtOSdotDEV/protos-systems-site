@@ -35,7 +35,7 @@
             <a class="site-title" href="/en/home/">ProtOS Systems</a>
             <div class="lang-switcher">
                 <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                    <span class="lang-trigger-code" id="lang-trigger-code">EN</span>
                     <span class="lang-trigger-chevron"></span>
                 </button>
                 <div class="lang-menu" id="lang-menu" role="listbox"></div>
@@ -56,11 +56,9 @@
       <p class="page-lead" style="margin-bottom: 3rem;">
         text goes here
       </p>
-
-    <div class="grid" id="contrib-grid">
-        <p class="empty">Loading persons :3</p>
-
-    </div>
+        <div class="grid" id="contrib-grid">
+            <p class="empty">Loading persons :3</p>
+        </div>
     </div>
 
     <footer class="footer">
@@ -105,6 +103,7 @@
                       : `<div class="contrib-pfp contrib-pfp-fallback">${escapeHtml((p.name || '?').slice(0, 1))}</div>`;
                   const inner = `
                         ${pfp}
+                        <p>${escapeHtml(p.pronouns || 'None listed.')}</p>
                         <span class="pill">${escapeHtml(p.status || 'Planned')}</span>
                         <h3 style="margin-top: 0.75rem;">${escapeHtml(p.name)}</h3>
                         <p>${escapeHtml(p.description || '')}</p>
@@ -116,7 +115,9 @@
                       : `<div class="contrib-card">${inner}</div>`;
                   return `<div class="contrib-cell flag-${flag}">${card}</div>`;
               }).join('');
-              
+          })
+          .catch(() => {
+              gridEl.innerHTML = '<p class="empty">The contributors could not be loaded at this time; please try again later.</p>';
           });
     </script>
 </body>

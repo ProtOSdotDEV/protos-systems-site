@@ -5,11 +5,11 @@
     <meta name="description" content="Voir tous les contributeurs de ProtOS Systems."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contributeurs // ProtOS Systems</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/pride.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/lang.css">
-    <link rel="stylesheet" href="/assets/css/nav.css">
     <link rel="stylesheet" href="/assets/css/flags.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -57,7 +57,7 @@
         text goes here
       </p>
         <div class="grid" id="contrib-grid">
-            <p class="empty">Loading peoples :3</p>
+            <p class="empty">Chargement des personnes :3</p>
         </div>
     </div>
 
@@ -87,13 +87,13 @@
 
       fetch('/data/contrib.json')
           .then(res => {
-              if (!res.ok) throw new Error('Failed to load contributors.');
+              if (!res.ok) throw new Error('Les contributeurs n\'ont pas pu être chargés.');
               return res.json();
           })
           .then(data => {
               const contribs = data.contributors || [];
               if (contribs.length === 0) {
-                  gridEl.innerHTML = '<p class="empty">No Contributors listed yet.</p>';
+                  gridEl.innerHTML = '<p class="empty">Aucun contributeur encore listé.</p>';
                   return;
               }
               gridEl.innerHTML = contribs.map( p => {
@@ -103,21 +103,22 @@
                       : `<div class="contrib-pfp contrib-pfp-fallback">${escapeHtml((p.name || '?').slice(0, 1))}</div>`;
                   const inner = `
                         ${pfp}
-                        <span class="pill">${escapeHtml(p.status || 'Planned')}</span>
+                        <p>${escapeHtml(p.pronouns || 'Aucun listé.')}</p>
+                        <span class="pill">${escapeHtml(p.status || 'Planifié')}</span>
                         <h3 style="margin-top: 0.75rem;">${escapeHtml(p.name)}</h3>
                         <p>${escapeHtml(p.description || '')}</p>
                         <div class="tag-list">${tags}</div>
                     `;
-                    const flag = escapeHtml(p.flag || 'rainbow');
-                    const card = p.link
+                  const flag = escapeHtml(p.flag || 'rainbow');
+                  const card = p.link
                       ? `<a class="contrib-card" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">${inner}</a>`
                       : `<div class="contrib-card">${inner}</div>`;
-                    return `<div class="contrib-cell flag-${flag}">${card}</div>`;
-                }).join('');
-              })
-              .catch(() => {
-                gridEl.innerHTML = '<p class="empty">Could not load contributors right now, try again later.</p>';
-              });
+                  return `<div class="contrib-cell flag-${flag}">${card}</div>`;
+              }).join('');
+          })
+          .catch(() => {
+              gridEl.innerHTML = '<p class="empty">Les contributeurs n\'ont pas pu être chargés pour le moment. Veuillez réessayer plus tard.</p>';
+          });
     </script>
 </body>
 </html>

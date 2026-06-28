@@ -1,0 +1,779 @@
+{
+  "_meta": {
+    "description": "Translation reference. Not loaded at runtime. Use this to keep wording consistent across all languages.",
+    "languages": [
+      "en",
+      "es",
+      "de",
+      "fr",
+      "ua",
+      "ru"
+    ],
+    "lastUpdated": "2026-06-27"
+  },
+
+  "common": {
+    "nav.overview": {
+      "en": "Overview",
+      "es": "Resumen",
+      "de": "",
+      "fr": "Vue D'ensemble",
+      "ua": "Огляд",
+      "ru": ""
+    },
+    "nav.projects":
+    {
+      "en": "Projects",
+      "es": "Proyectos",
+      "de": "",
+      "fr": "Projets",
+      "ua": "Проєкти",
+      "ru": ""
+    },
+    "nav.devLogs": {
+      "en": "Developer Logs",
+      "es": "Bitácoras De Desarrollo",
+      "de": "",
+      "fr": "Logs De Développment",
+      "ua": "Журнали розробників",
+      "ru": ""
+    },
+    "nav.contact": {
+      "en": "Contact",
+      "es": "Contacto",
+      "de": "",
+      "fr": "Contact",
+      "ua": "Контакти",
+      "ru": ""
+    },
+    "nav.contributors": {
+      "en": "Contributors",
+      "es": "Colaboradores",
+      "de": "",
+      "fr": "Contributeurs",
+      "ua": "Учасники",
+      "ru": ""
+    },
+    "footer.rights": {
+      "en": "All rights reserved.",
+      "es": "Todos Derechos Reservados.",
+      "de": "",
+      "fr": "Tout Droits Réservés.",
+      "ua": "Усі права захищені.",
+      "ru": ""
+    },
+    "pride.message": {
+      "en": "Happy Pride Month",
+      "es": "Feliz Mes del Orgullo",
+      "de": "",
+      "fr": "Joyeux mois des fiertés",
+      "ua": "З Місяцем Прайду",
+      "ru": ""
+    }
+  },
+
+  "home": {
+    "meta.desc": {
+      "en": "Building low-level systems, deliberately.",
+      "es": "Construyendo systemas bajo-nivel, deliberadamente.",
+      "de": "",
+      "fr": "Construire des systèmes de bas niveau, délibérément.",
+      "ua": "",
+      "ru": ""
+    },
+    "meta.title":
+    {
+      "en": "ProtOS Systems",
+      "es": "ProtOS Systems",
+      "de": "",
+      "fr": "ProtOS Systems",
+      "ua": "ProtOS Systems",
+      "ru": ""
+    },
+    "eyebrow": {
+      "en": "The workshop",
+      "es": "el taller",
+      "de": "",
+      "fr": "l'atelier",
+      "ua": "Семінар",
+      "ru": ""
+    },
+    "hero.title": {
+      "en": "Building low-level systems, deliberately.",
+      "es": "Construyendo systemas bajo-nivel, deliberadamente.",
+      "de": "",
+      "fr": "Construire des systèmes de bas niveau, délibérément.",
+      "ua": "Створення низькорівневих систем, свідомо.",
+      "ru": ""
+    },
+    "hero.lead": {
+      "en": "ProtOS Systems is a workshop for operating systems, applications, and doing everything computer manufacturers don't want you doing. This site is currently under construction, pardon the dust.",
+      "es": "ProtOS Systems es un espacio para sistemas operativos, aplicaciones y hacer todo lo que los fabricantes de computadoras no quieren que hagas. Esta página está en construcción en este momento, disculpa el polvo.",
+      "de": "",
+      "fr": "ProtOS Systems est un atelier pour les systèmes opérateurs, les applications, et faire tout ce que les fabricants d'ordinateurs ne veulent pas que tu fasses. Ce site est en cours de constrution, pardon pour la poussière.",
+      "ua": "ProtOS Systems - це майстерня, присвячена операційним системам, додаткам та всьому тому, чого виробники комп’ютерів не хочуть, щоб ви робили. Цей сайт наразі перебуває на стадії розробки, вибачте за незручності.",
+      "ru": ""
+    },
+    "about.label": {
+      "en": "About",
+      "es": "Sobre esto",
+      "de": "",
+      "fr": "à propos",
+      "ua": "про",
+      "ru": ""
+    },
+    "about.heading": {
+      "en": "What is this?",
+      "es": "¿Qué es esto?",
+      "de": "",
+      "fr": "Qu'est-ce que c'est?",
+      "ua": "Що це таке?",
+      "ru": ""
+    },
+    "about.body1": {
+      "en": "ProtOS Systems is a hub of projects the ProtOS developers are, have, or are planning to work on. Our main focus is on our own operating system, ProtOS. Throughout our time from starting ProtOS in 2025, to now, We've landed on a few more projects that have to do with Windows, Linux, macOS, and even some hardware projects, such as installing Linux on MacBook Silicon, hardware for protogens, and more. This website will be frequently updated with new developer logs, project status updates and even posts about our work.",
+      "es": "ProtOS Systems es un centro de proyectos que los programadores de ProtOS estan trabajando, hecho, o estan planificando en trabajar. Nuestro enfoque principal es nuestro propio sistema operativo, ProtOS. En todo nuestro tiempo en empezar ProtOS en 2025, hasta ahora, hemos conseguido algunos proyectos que tienen que ver con Windows, Linux, macOS, y tambien proyectos de hardware, como instalando Linux en MacBook Silicon, hardware para los protogens, y mas. Esta página se actualizará a menudo con nuevos bitácoras, informes del estado de los proyectos, y tambien publicaciónes de nuestros trabajos.",
+      "de": "",
+      "fr": "ProtOS Systems est un hub de projets que les développeurs de ProtOS sont en train de, ont, ou planifient de travailler sur. Nous nous concentrons principalement sur notre propre système opérateurs, ProtOS. Depuis que nous avons commencé ProtOS en 2025, jusqu'à aujourd'hui, nous nous sommes lancés sur quelques autres projets concernant Windows, Linux, macOS, et même quelques projets de matériel, tels que installer Linux sur MacBook Silicon, du matériel pour protogens, et plus. Ce site sera fréquemment mis à jour avec de nouveaux logs de développement, des mise à jours sur les status des projets et même des posts à propos de notre travail.",
+      "ua": "ProtOS Systems - це центр проектів, над якими розробники ProtOS працюють, працювали або планують працювати. Наша основна увага зосереджена на власній операційній системі - ProtOS. З моменту запуску ProtOS у 2025 році й до сьогодні ми взялися за ще кілька проєктів, пов’язаних із Windows, Linux, macOS, а також за деякі апаратні проєкти, такі як встановлення Linux на MacBook Silicon, апаратне забезпечення для protogens тощо. Цей веб-сайт буде регулярно оновлюватися новими щоденниками розробників, інформацією про стан проєктів та публікаціями про нашу роботу.",
+      "ru": ""
+    },
+    "about.body2": {
+      "en": "Why do you care? If you've landed here, either you're unreasonably lost, or you take interest in low-level systems or free and open source software. Whether you're a protogen looking to get a visor, or a tech nerd who's looking to get Linux on their MacBook, this is where you would come to get that.",
+      "es": "¿Por qué te importa? Si has llegado hasta aquí, probablemente estás completamente perdido, o te interesa los sistemas bajo-nivel o software gratis y de código abierto. Ya seas un protogen buscando conseguir un visor, o un nerd de la tecnología que esta buscando a instalar Linux en su MacBook, aquí es donde vendrías a buscarlo.",
+      "de": "",
+      "fr": "ourquoi cela t'importe? Si tu as atteri ici, tu est soir irraisonnablement perdu, ou tu t'intéresses aux systèmes de bas niveau et aux logiciels gratuits et en open source. Que tu soit un protogen cherchant à acquérir une visière, ou un nerd de la tech qui cherche à avoir Linux sur son MacBook, c'est ici que tu viendrais pour avoir cela.",
+      "ua": "Чому це вас цікавить? Якщо ви потрапили сюди, то або ви безпідставно заблукали, або вас цікавлять низькорівневі системи чи вільне програмне забезпечення з відкритим кодом. Незалежно від того, чи ви протоген, який хоче придбати візор, чи технічний фанат, що прагне встановити Linux на свій MacBook, саме сюди ви й прийшли, щоб це зробити.",
+      "ru": ""
+    },
+    "focus.label": {
+      "en": "Focus",
+      "es": "Foco",
+      "de": "",
+      "fr": "Focus",
+      "ua": "Фокус",
+      "ru": ""
+    },
+    "focus.heading": {
+      "en": "Areas",
+      "es": "Zonas",
+      "de": "",
+      "fr": "Zones",
+      "ua": "Області",
+      "ru": ""
+    },
+    "newsletter": {
+      "label": {
+        "en": "Stay up to date",
+        "es": "Mantente al día",
+        "de": "",
+        "fr": "tiens-toi au courant",
+        "ua": "будьте в курсі подій",
+        "ru": ""
+      },
+      "heading": {
+        "en": "Subscribe to our newsletter.",
+        "es": "Subscríbete a nuestro boletín.",
+        "de": "",
+        "fr": "Abonne-toi à notre newsletter.",
+        "ua": "Підпишіться на нашу розсилку.",
+        "ru": ""
+      },
+      "desc": {
+        "en": "Get updated about our projects as soon as we announce it. Don't want any more updates? Unsubscribe at any time.",
+        "es": "Mantente al día sobre nuestro proyectos tan pronto lo anunciemos. No quieres más actualizaciones? Cancela tu suscripción en cualqier momento.",
+        "de": "",
+        "fr": "Soit tenu au courant de nos projets dès que nous les annonçons. Tu ne veux plus être mis à jour? Désabonne-toi n'importe quand.",
+        "ua": "Дізнавайтеся про наші проекти одразу після їх оголошення. Не хочете більше отримувати повідомлення? Ви можете відмовитися від підписки в будь-який час.",
+        "ru": ""
+      },
+      "button": {
+        "en": "Subscribe",
+        "es": "Subscribirse",
+        "de": "",
+        "fr": "S'abonner",
+        "ua": "Підписатися",
+        "ru": ""
+      },
+      "placeholder.email": {
+        "en": "you@example.com",
+        "es": "tu@ejemplo.com",
+        "de": "",
+        "fr": "you@example.com",
+        "ua": "you@example.com",
+        "ru": ""
+      },
+      "email.aria-label": {
+        "en": "Email address",
+        "es": "Correo electrónico",
+        "de": "",
+        "fr": "Adresse email",
+        "ua": "адреса електронної пошти",
+        "ru": ""
+      },
+      "status.success": {
+        "en": "// subscribed - welcome to the loop.",
+        "es": "// Te has suscrito: bienvenido al grupo.",
+        "de": "",
+        "fr": "// Abonné - bienvenue, vous allez être tenu au courant.",
+        "ua": "Ви підписалися - ласкаво просимо до нашої спільноти.",
+        "ru": ""
+      },
+      "status.duplicate": {
+        "en": "// already subscribed - you're in the loop.",
+        "es": "// Ya estás suscrito: estás al tanto de todo.",
+        "de": "",
+        "fr": "// Déjà abonné - vous êtes déjà tenu au courant.",
+        "ua": "Ви вже підписалися — ви в курсі подій.",
+        "ru": ""
+      },
+      "status.invalidEmail": {
+        "en": "Please enter a valid email address.",
+        "es": "Por favor, ingresa una dirección de correo electrónico válida.",
+        "de": "",
+        "fr": "Veuillez entrer une adresse email valide.",
+        "ua": "Будь ласка, введіть дійсну адресу електронної пошти.",
+        "ru": ""
+      },
+      "status.error": {
+        "en": "Something went wrong. Please try again.",
+        "es": "Algo salió mal. Inténtalo de nuevo.",
+        "de": "",
+        "fr": "Quelque chose s'est mal passé. Veuillez vérifier votre connexion et réessayer.",
+        "ua": "Сталася помилка. Спробуйте ще раз.",
+        "ru": ""
+      },
+      "status.networkError": {
+        "en": "Network error. Please check your connection and try again.",
+        "es": "Error de red. Por favor, revisa tu conexión e inténtalo de nuevo.",
+        "de": "",
+        "fr": "Quelque chose s'est mal passé. Veuillez vérifier votre connexion et réessayer.",
+        "ua": "Помилка мережі. Перевірте з’єднання та спробуйте ще раз.",
+        "ru": ""
+      }
+    }
+  },
+
+  "projects": {
+    "meta.desc": {
+      "en": "Projects from ProtOS Systems",
+      "es": "Proyectos de ProtOS Systems",
+      "de": "",
+      "fr": "Projets de ProtOS Systems",
+      "ua": "Проєкти від ProtOS Systems",
+      "ru": ""
+    },
+    "meta.title": {
+      "en": "Projects // ProtOS Systems",
+      "es": "Proyectos // ProtOS Systems",
+      "de": "",
+      "fr": "Projets // ProtOS Systems",
+      "ua": "Проєкти // ProtOS Systems",
+      "ru": ""
+    },
+    "eyebrow": {
+      "en": "The Workbench",
+      "es": "El taller",
+      "de": "",
+      "fr": "l'établi",
+      "ua": "верстат",
+      "ru": ""
+    },
+    "title": {
+      "en": "Projects",
+      "es": "Proyectos",
+      "de": "",
+      "fr": "Projets",
+      "ua": "Проєкти",
+      "ru": ""
+    },
+    "lead": {
+      "en": "Everything ProtOS Systems is currently building, has shipped, or is planning to get to eventually.",
+      "es": "Todo lo que ProtOS Systems está contruyendo ahora, ha publicado, or estan planeando trabajar en algun momento.",
+      "de": "",
+      "fr": "Tout ce que ProtOS Systems est en train de construire, a expédié, ou planifie éventuellement de s'occuper.",
+      "ua": "Усе, що компанія ProtOS Systems наразі розробляє, вже випустила на ринок або планує реалізувати в майбутньому.",
+      "ru": ""
+    },
+    "grid": {
+      "status.loading": {
+        "en": "Loading Projects...",
+        "es": "Cargando proyectos...",
+        "de": "",
+        "fr": "Chargement des projets...",
+        "ua": "Завантаження проектів...",
+        "ru": ""
+      },
+      "status.error": {
+        "en": "Failed to load projects",
+        "es": "No pudo cargar los proyectos",
+        "de": "",
+        "fr": "Les projets n'ont pas pu être chargés",
+        "ua": "Не вдалося завантажити проекти",
+        "ru": ""
+      },
+      "status.projectsEmpty": {
+        "en": "No projects listed yet.",
+        "es": "Aún no hay proyectos en la lista.",
+        "de": "",
+        "fr": "Pas encore de projets définis",
+        "ua": "Проєктів поки що немає.",
+        "ru": ""
+      },
+      "status.loadFail": {
+        "en": "Could not load projects right now. Try again later.",
+        "es": "No se pudieron cargar los proyectos en este momento. Inténtalo de nuevo más tarde.",
+        "de": "",
+        "fr": "Les projets n'ont pas pu charger pour le moment. Réessayez plus tard.",
+        "ua": "Наразі не вдалося завантажити проекти. Спробуйте ще раз пізніше.",
+        "ru": ""
+      }
+    }
+  },
+
+  "developer-logs": {
+    "meta.desc": {
+      "en": "Developer logs from ProtOS Systems",
+      "es": "Bitácoras de desarrollo de ProtOS Systems",
+      "de": "",
+      "fr": "Logs de développment de ProtOS Systems",
+      "ua": "Журнали розробників від ProtOS Systems",
+      "ru": ""
+    },
+    "meta.title": {
+      "en": "Developer Logs // ProtOS Systems",
+      "es": "",
+      "de": "",
+      "fr": "Logs de développment // ProtOS Systems",
+      "ua": "Журнали розробників // ProtOS Systems",
+      "ru": ""
+    },
+    "eyebrow": {
+      "en": "changelog",
+      "es": "registros de cambio",
+      "de": "",
+      "fr": "Journaux des Modifications",
+      "ua": "журнал змін",
+      "ru": ""
+    },
+    "title": {
+      "en": "Developer Logs",
+      "es": "Bitácoras de desarrollo",
+      "de": "",
+      "fr": "Logs de développement",
+      "ua": "Журнали розробника",
+      "ru": ""
+    },
+    "lead": {
+      "en": "Notes from the workshop, progress updates, dead ends, and whatever else is happening across ProtOS Systems projects.",
+      "es": "Notas del grupo, informes sobre el progreso, impasses, y cualquier otra cosa que esta pasando en los proyectos de ProtOS Systems.",
+      "de": "",
+      "fr": "Notes de l'établi, mises à jour à propos des projets en cours, des projets sur lesquels nous bloquons, et n'importe quel autre chose se passant au sein de ProtOS Systems.",
+      "ua": "Нотатки з семінару, звіти про хід робіт, глухі кути та все інше, що відбувається в рамках проектів ProtOS Systems.",
+      "ru": ""
+    },
+    "log-list": {
+      "status.loading": {
+        "en": "Loading logs...",
+        "es": "Cargando bitácoras...",
+        "de": "",
+        "fr": "Chargement des logs...",
+        "ua": "Завантаження журналів...",
+        "ru": ""
+      },
+      "status.error": {
+        "en": "Failed to load logs",
+        "es": "No pudo cargar los bitácoras",
+        "de": "",
+        "fr": "Les logs n'ont pas pu être chargés",
+        "ua": "Не вдалося завантажити журнали",
+        "ru": ""
+      },
+      "status.logsEmpty": {
+        "en": "No developer logs yet. Check back soon.",
+        "es": "Todavía no hay bitácoras. Vuelve más tarde.",
+        "de": "",
+        "fr": "Pas encore de logs de développement. Revenez bientôt vérifier.",
+        "ua": "Поки що немає журналів розробника. Загляньте пізніше.",
+        "ru": ""
+      },
+      "status.loadFail": {
+        "en": "Could not load developer logs right now. Try again Later.",
+        "es": "Aún no hay registros de desarrolladores. Vuelve pronto.",
+        "de": "",
+        "fr": "Les logs développeurs n'ont pas pu être chargés pour le moment. Réessayez plus tard.",
+        "ua": "Наразі не вдалося завантажити журнали розробника. Спробуйте ще раз пізніше.",
+        "ru": ""
+      }
+    }
+  },
+
+  "contact": {
+    "meta.desc": {
+      "en": "Contact ProtOS Systems",
+      "es": "Contacto ProtOS Systems",
+      "de": "",
+      "fr": "Contact ProtOS Systems",
+      "ua": "Зв’яжіться з компанією ProtOS Systems",
+      "ru": ""
+    },
+    "meta.title": {
+      "en": "Contact // ProtOS Systems",
+      "es": "Contacto // ProtOS Systems",
+      "de": "",
+      "fr": "Contact // ProtOS Systems",
+      "ua": "Контакти // ProtOS Systems",
+      "ru": ""
+    },
+    "eyebrow": {
+      "en": "get in touch",
+      "es": "ponte en contacto",
+      "de": "",
+      "fr": "contacte-nous",
+      "ua": "зв’яжіться з нами",
+      "ru": ""
+    },
+    "title": {
+      "en": "Contact",
+      "es": "Contacto",
+      "de": "",
+      "fr": "Contact",
+      "ua": "Контакти",
+      "ru": ""
+    },
+    "lead": {
+      "en": "Have a question about a project, want to collaborate, or want to reach out? Fill out this form below and we'll get back to you.",
+      "es": "¿Tienes una pregunta sobre un proyecto, quieres colaborar, o quieres ponerte en contacto? Rellena este formulario y nos pondremos en contacto contigo.",
+      "de": "",
+      "fr": "Tu as une question à propos d'un projet, tu veux collaborer, ou tu as besoin d'aide ? Rempli le champ ci-dessous et nous viendrons vers toi.",
+      "ua": "Маєте запитання щодо проєкту, хочете співпрацювати або зв’язатися з нами? Заповніть форму нижче, і ми зв’яжемося з вами.",
+      "ru": ""
+    },
+    "fields": {
+      "name": {
+        "label": {
+          "en": "Name",
+          "es": "Nombre",
+          "de": "",
+          "fr": "Nom",
+          "ua": "Ім'я",
+          "ru": ""
+        },
+        "placeholder": {
+          "en": "Your name",
+          "es": "Tu nombre",
+          "de": "",
+          "fr": "Ton nom",
+          "ua": "Ваше ім'я",
+          "ru": ""
+        }
+      },
+      "email": {
+        "label": {
+          "en": "Email",
+          "es": "Correo Electrónico",
+          "de": "",
+          "fr": "Email",
+          "ua": "Електронна пошта",
+          "ru": ""
+        },
+        "placeholder": {
+          "en": "you@example.com",
+          "es": "tu@ejemplo.com",
+          "de": "",
+          "fr": "you@example.com",
+          "ua": "you@example.com",
+          "ru": ""
+        }
+      },
+      "subject": {
+        "label": {
+          "en": "Subject",
+          "es": "Tema",
+          "de": "",
+          "fr": "Sujet",
+          "ua": "Тема",
+          "ru": ""
+        },
+        "options": {
+          "placeholder": {
+            "en": "Select a topic...",
+            "es": "Selecciona una tema...",
+            "de": "",
+            "fr": "Sélectionne un sujet...",
+            "ua": "Виберіть тему...",
+            "ru": ""
+          },
+          "general": {
+            "en": "General Enquiry",
+            "es": "Pregunta general",
+            "de": "",
+            "fr": "Question globale",
+            "ua": "Загальний запит",
+            "ru": ""
+          },
+          "collaboration": {
+            "en": "Project Collaboration",
+            "es": "Colaboración en proyectos",
+            "de": "",
+            "fr": "Collaboration de projets",
+            "ua": "Співпраця над проектом",
+            "ru": ""
+          },
+          "protOS": {
+            "en": "ProtOS",
+            "es": "ProtOS",
+            "de": "",
+            "fr": "ProtOS",
+            "ua": "ProtOS",
+            "ru": ""
+          },
+          "protogen-hardware": {
+            "en": "Protogen Hardware/Visors",
+            "es": "Protogen Hardware/Visores",
+            "de": "",
+            "fr": "Matériel/Visières pour protogen",
+            "ua": "Апаратне забезпечення та візори Protogen",
+            "ru": ""
+          },
+          "other": {
+            "en": "Other",
+            "es": "Otro",
+            "de": "",
+            "fr": "Autre",
+            "ua": "Інше",
+            "ru": ""
+          }
+        }
+      },
+      "message": {
+        "label": {
+          "en": "Message",
+          "es": "Mensaje",
+          "de": "",
+          "fr": "Message",
+          "ua": "Повідомлення",
+          "ru": ""
+        },
+        "placeholder": {
+          "en": "What's on your mind?",
+          "es": "¿Qué esta en tu mente?",
+          "de": "",
+          "fr": "Qu'est-ce que tu as à l'esprit?",
+          "ua": "Що вас турбує?",
+          "ru": "Hадіслати повідомлення"
+        }
+      }
+    },
+    "button.send": {
+      "en": "Send Message",
+      "es": "Enviar Mensaje",
+      "de": "",
+      "fr": "Envoyer un message",
+      "ua": "Надіслати повідомлення",
+      "ru": ""
+    },
+    "success": {
+      "eyebrow": {
+        "en": "transmission complete",
+        "es": "transmisión completo",
+        "de": "",
+        "fr": "transmission complète",
+        "ua": "Передача завершена",
+        "ru": ""
+      },
+      "title": {
+        "en": "Message Sent.",
+        "es": "Mensaje enviado.",
+        "de": "",
+        "fr": "Message envoyé.",
+        "ua": "Повідомлення надіслано.",
+        "ru": ""
+      },
+      "body": {
+        "en": "Thanks for reaching out. We've received your message and will get back to you at the email address you provided as soon as we can.",
+        "es": "Gracias por ponerte en contacto. Hemos recibido tu mensaje y nos pondremos en contacto contigo por el dirección de correo electrónico que nos dejaste tan pronto como podamos.",
+        "de": "",
+        "fr": "Merci de nous avoir contacté. Nous avons reçu votre message et viendrons vers vous à l'adresse email que vous avez entré dès que nous pourrons.",
+        "ua": "Дякуємо за звернення. Ми отримали ваше повідомлення і відповімо вам на вказану вами електронну адресу, щойно це буде можливо.",
+        "ru": ""
+      },
+      "button.back": {
+        "en": "Back to home",
+        "es": "Atrás al inicio",
+        "de": "",
+        "fr": "Retour à l'accueil",
+        "ua": "Назад на головну сторінку",
+        "ru": ""
+      }
+    },
+    "direct.label": {
+      "en": "Or reach us directly",
+      "es": "o ponte en contacto con nosotros directamente",
+      "de": "",
+      "fr": "Ou contacte-nous directement",
+      "ua": "Або зв’яжіться з нами безпосередньо",
+      "ru": ""
+    },
+    "status.error.missingFields": {
+      "en": "Please fill in all fields before sending.",
+      "es": "Por favor, completa todos los campos antes de enviar.",
+      "de": "",
+      "fr": "Veuillez remplir tout les champs avant d'envoyer.",
+      "ua": "Будь ласка, заповніть усі поля перед відправленням.",
+      "ru": ""
+    },
+    "status.error": {
+      "en": "Soemthing went wrong. Please try again or email us directly.",
+      "es": "Algo salió mal. Inténtalo de nuevo o envíanos un correo electrónico directamente.",
+      "de": "",
+      "fr": "Quelque chose s'est mal passé. Veuillez réessayer ou nous envoyer un email directement.",
+      "ua": "Сталася помилка. Спробуйте ще раз або надішліть нам електронного листа безпосередньо.",
+      "ru": ""
+    },
+    "status.networkError": {
+      "en": "Network error. Please check your connection and try again.",
+      "es": "Error de red. Por favor, revisa tu conexión e inténtalo de nuevo.",
+      "de": "",
+      "fr": "Erreur de connection. Veuillez vérifier votre connexion à internet et rééssayer.",
+      "ua": "Помилка мережі. Перевірте з’єднання та спробуйте ще раз.",
+      "ru": ""
+    }
+  },
+
+  "contributors": {
+    "meta.desc": {
+      "en": "See all of the ProtOS Systems Contributors.",
+      "es": "Ver todos los colaboradores de ProtOS Systems.",
+      "de": "",
+      "fr": "Voir tous les contributeurs de ProtOS Systems.",
+      "ua": "Переглянути всіх авторів ProtOS Systems.",
+      "ru": ""
+    },
+    "meta.title": {
+      "en": "Contributors // ProtOS Systems",
+      "es": "Colaboradores // ProtOS Systems",
+      "de": "",
+      "fr": "Contributeurs // ProtOS Systems",
+      "ua": "Учасники // ProtOS Systems",
+      "ru": ""
+    },
+    "eyebrow": {
+      "en": "Our wonderful contributors <3",
+      "es": "Nuestros colaboradores maravillosos <3",
+      "de": "",
+      "fr": "Nos merveilleux contributeurs <3",
+      "ua": "Наші чудові автори <3",
+      "ru": ""
+    },
+    "title": {
+      "en": "Contributors",
+      "es": "Colaboradores",
+      "de": "",
+      "fr": "Contributeurs",
+      "ua": "Aвтори",
+      "ru": ""
+    },
+    "lead": {
+      "en": "text goes here",
+      "es": "text goes here",
+      "de": "",
+      "fr": "text goes here",
+      "ua": "тут має бути текст",
+      "ru": ""
+    },
+    "grid": {
+      "loading": {
+        "en": "Loading persons :3",
+        "es": "Cargando personas :3",
+        "de": "",
+        "fr": "Chargement des personnes :3",
+        "ua": "Завантаження людей :3",
+        "ru": ""
+      },
+      "pronouns.placeholder": {
+        "en": "None listed.",
+        "es": "Ninguna listados.",
+        "de": "",
+        "fr": "Aucun listé.",
+        "ua": "Не вказано.",
+        "ru": ""
+      },
+      "card-status.placeholder": {
+        "en": "Planned",
+        "es": "Planificado",
+        "de": "",
+        "fr": "Planifié",
+        "ua": "Заплановано",
+        "ru": ""
+      },
+      "status.error": {
+        "en": "Failed to load contributors.",
+        "es": "No pudo cargar los colaboradores.",
+        "de": "",
+        "fr": "Les contributeurs n'ont pas pu être chargés.",
+        "ua": "Не вдалося завантажити авторів.",
+        "ru": ""
+      },
+      "status.contributorsEmpty": {
+        "en": "No Contributors listed yet.",
+        "es": "Aún no hay colaboradores en la lista.",
+        "de": "",
+        "fr": "Aucun contributeur encore listé.",
+        "ua": "Поки що авторів не вказано.",
+        "ru": ""
+      },
+      "status.loadFail": {
+        "en": "The contributors could not be loaded at this time; please try again later.",
+        "es": "No se pudieron cargar los colaboradores en este momento; inténtalo de nuevo más tarde.",
+        "de": "",
+        "fr": "Les contributeurs n'ont pas pu être chargés pour le moment. Veuillez réessayer plus tard",
+        "ua": "Наразі не вдалося завантажити список авторів. Спробуйте ще раз пізніше.",
+        "ru": ""
+      }
+    }
+  },
+
+  "404": {
+    "meta.desc": {
+      "en": "Page not found.",
+      "es": "Página no encontrada.",
+      "de": "",
+      "fr": "Page introuvable.",
+      "ua": "Сторінка не знайдена - ProtOS Systems",
+      "ru": ""
+    },
+    "meta.title": {
+      "en": "404 // ProtOS Systems",
+      "es": "404 // ProtOS Systems",
+      "de": "",
+      "fr": "404 // ProtOS Systems",
+      "ua": "404 // ProtOS Systems",
+      "ru": ""
+    },
+    "title": {
+      "en": "Page not found.",
+      "es": "Página no encontrada.",
+      "de": "",
+      "fr": "Page introuvable.",
+      "ua": "Сторінка не знайдена.",
+      "ru": ""
+    },
+    "desc": {
+      "en": "This route does not exist. Maybe it's a bad link, maybe a typo - either way, the kernel couldn't load it.",
+      "es": "Esta ruta no existe. Probablemente es un mal enlace, quizás un error tipografico - de cualquier manera, el núcleo no he podido asignarlo.",
+      "de": "",
+      "fr": "Ce chemin n'existe pas. Peut-être que c'est le mauvais lien, peut-être que c'est une faute de frappe - de toute façon, le kernel n'a pas pu le mapper.",
+      "ua": "Цього шляху не існує. Можливо, це неправильне посилання, а може, просто помилка в написанні - у будь-якому разі ядро не змогло його зіставити.",
+      "ru": ""
+    },
+    "button.home": {
+      "en": "Back to home",
+      "es": "Atrás al inicio",
+      "de": "",
+      "fr": "Retour à l'accueil",
+      "ua": "Назад на головну",
+      "ru": ""
+    }
+  }
+}

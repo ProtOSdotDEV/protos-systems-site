@@ -216,6 +216,9 @@
                 background: var(--green-glow);
                 border-radius: 2px;
             }
+            .success-screen.visible { /* DO NOT REMOVE */
+                display: flex;
+            }
             .success-eyebrow {
                 font-family: var(--mono), sans-serif;
                 font-size: 0.65rem;
@@ -330,13 +333,6 @@
                 text-transform: uppercase;
                 color: var(--text-dim);
             }
-
-            /* responsive */
-            @media (max-width: 600px) {
-                h1 { font-size: 1.6rem; }
-                .nav-links { position: static; transform: none; }
-                .navbar { flex-wrap: wrap; gap: 0.75rem; }
-            }
         </style>
     </head>
 <body>
@@ -360,7 +356,7 @@
             <a class="site-title" href="/en/home/">ProtOS Systems</a>
             <div class="lang-switcher">
                 <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="lang-trigger-code" id="lang-trigger-code">FR</span>
+                    <span class="lang-trigger-code" id="lang-trigger-code">EN</span>
                     <span class="lang-trigger-chevron"></span>
                 </button>
                 <div class="lang-menu" id="lang-menu" role="listbox"></div>

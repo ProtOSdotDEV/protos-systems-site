@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Building low-level systems, deliberately."/>
+    <meta name="description" content="Створення низькорівневих систем, свідомо."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProtOS Systems</title>
     <link rel="stylesheet" href="/assets/css/pride.css">
-    <link rel="stylesheet" href="/assets/css/nav.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/lang.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -53,37 +54,7 @@ body {
 a { color: var(--green); text-decoration: none; }
 a:hover { color: var(--text-bright); text-decoration: underline; }
 
-/* layout */
-.wrap {
-    max-width: 820px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 3.5rem 1.5rem 4rem;
-    flex: 1;
-}
-
 /* typography */
-
-.eyebrow {
-    font-family: var(--mono), sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--green-dim);
-    margin-bottom: 0.75rem;
-    font-weight: 500;
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem;
-    margin-bottom: 2.5rem;
-}
 
 h1 {
     font-size: 2.1rem;
@@ -93,7 +64,6 @@ h1 {
     color: var(--text-bright);
     margin-bottom: 1.25rem;
 }
-h1 .accent { color: var(--green); }
 
 h2 {
     font-size: 1.35rem;
@@ -103,26 +73,7 @@ h2 {
     margin: 0 0 1rem;
 }
 
-.lead {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--text-dim);
-    max-width: 58ch;
-    line-height: 1.85;
-    margin-bottom: 0;
-}
-
 p + p { margin-top: 1rem; }
-
-.section-label {
-    font-family: var(--mono), sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--green-dim);
-    margin-bottom: 0.75rem;
-}
 
 code {
     background: var(--surface);
@@ -151,101 +102,13 @@ section p {
 }
 
 /* project cards */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-.project-card {
-    display: block;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 1.5rem;
-    color: var(--text);
-    transition: border-color 0.15s, background 0.15s;
-}
-.project-card:hover { text-decoration: none; border-color: var(--green-dim); background: var(--green-glow); }
 .project-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.4rem; }
 .project-card p { color: var(--text-dim); font-size: 0.88rem; }
 
-/* status pill + tags */
-.pill {
-    display: inline-block;
-    font-family: var(--mono), sans-serif;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.15rem 0.55rem;
-    border-radius: 1px;
-    border: 1px solid var(--green-dim);
-    color: var(--green-dim)
-}
-.tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
-.tag {
-    font-family: var(--mono), sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--green-dim);
-    border: 1px solid var(--green-dim); 
-    border-radius: 1%;
-    padding: 0.1rem 0.45rem;
-}
-
 /* logs */
-.log {
-    border-left: 2px solid var(--border);
-    padding: 0 0 1.75rem 1.25rem;
-    position: relative;
-    transition: border-left-color 0.15s;
-}
-.log:hover { border-left-color: var(--green); }
-.log::before {
-    content: "";
-    position: absolute;
-    left: -5px; top: 6px;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--green-dim);
-    transition: background 0.15s;
-}
-.log:hover::before { background: var(--green); }
-.log:last-child { padding-bottom: 0;}
-.log-meta {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    flex-wrap: wrap;
-    font-family: var(--mono), sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 0.35rem;
-}
 .log-meta a { color: var(--green-dim); }
 .log h3 { font-size: 1rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.3rem; }
 .log p { color: var(--text-dim); font-size: 0.9rem; }
-
-.back {
-    display: inline-block;
-    font-family: var(--mono), sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 1.5rem;
-    transition: color 0.15s;
-}
-.back:hover { color: var(--green); text-decoration: none; }
-.back:before { content: '← '; }
-.empty { color: var(--text-dim); font-style: italic; font-size: 0.88rem; }
 
 .newsletter {
     width: 100%;
@@ -307,7 +170,6 @@ section p {
 }
 .newsletter-input::placeholder { color: var(--text-dim); font-weight: 400; }
 .newsletter-input:focus { border-color: var(--green-dim); }
-.newsletter-input.invalid { border-color: #ff4444; }
 
 .newsletter-btn {
     display: inline-flex;
@@ -343,7 +205,6 @@ section p {
     display: none;
 }
 .newsletter-btn.loading .spinner { display: block; }
-.newsletter-btn.loading .btn-label { opacity: 0.6; }
 @keyframes nl-spin { to { transform: rotate(360deg); } }
 
 .newsletter-status {
@@ -357,22 +218,9 @@ section p {
     border-left: 2px solid;
     max-width: 480px;
 }
-.newsletter-status.success {
-    display: block;
-    color: var(--green);
-    border-color: var(--green);
-    background: var(--green-glow);
-}
-.newsletter-status.error {
-    display: block;
-    color: #ff4444;
-    border-color: #ff4444;
-    background: rgba(255, 68, 68, 0.06);
-}
 /* responsive */
 @media (max-width: 600px) {
     h1 { font-size: 1.6rem; }
-    .navbar-inner { flex-direction: column; align-items: flex-start; }
 }
 
 </style>
@@ -387,60 +235,70 @@ section p {
         <div class="pride-content">
             <span class="pride-comment">/*</span>
             <span class="pride-flag">🏳️‍🌈</span>
-            <span class="pride-keyword">Happy Pride Month</span>
+            <span class="pride-keyword">З Місяцем Прайду</span>
             <span class="pride-comment">//</span>
             <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
             <span class="pride-comment"> */</span>
         </div>
     </div>
     <nav class="navbar">
-        <a class="site-title" href="/en/home/">ProtOS Systems</a>
+        <div class="navbar-row1">
+            <a class="site-title" href="/ua/home/">ProtOS Systems</a>
+            <div class="lang-switcher">
+                <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="lang-trigger-code" id="lang-trigger-code">UA</span>
+                    <span class="lang-trigger-chevron"></span>
+                </button>
+                <div class="lang-menu" id="lang-menu" role="listbox"></div>
+            </div>
+        </div>
         <div class="nav-links" id="nav">
-            <a class="tab active">Overview</a>
-            <a class="tab" href="/en/projects/">Projects</a>
-            <a class="tab" href="/en/dev-logs/">Developer Logs</a>
-            <a class="tab" href="/en/contact/">Contact</a>
-            <a class="tab" href="/en/contributors/">Contributors</a>
+            <a class="tab active" href="/ua/home/">Огляд</a>
+            <a class="tab" href="/ua/projects/">Проєкти</a>
+            <a class="tab" href="/ua/dev-logs/">Журнали розробників</a>
+            <a class="tab" href="/ua/contact/">Контакти</a>
+            <a class="tab" href="/ua/contributors/">Учасники</a>
         </div>
     </nav>
 
 
     <div class="wrap">
         <section class="view" id="view-overview" style="margin-top:0; border-top:none;">
-            <p class="eyebrow">// the workshop</p>
-            <h1>Building <span class="accent">low-level</span> systems, deliberately.</h1>
+            <p class="eyebrow">// Семінар</p>
+            <h1>Створення <span class="accent">низькорівневих</span> систем - свідомо.</h1>
             <p class="lead">
-                ProtOS Systems is a workshop for operating systems, applications, 
-                and doing everything computer manufacturers don't want you doing.
-                This site is currently under construction, pardon the dust.
+                ProtOS Systems - це майстерня, присвячена операційним системам, додаткам
+                та всьому тому, чого виробники комп’ютерів не хочуть, щоб ви робили.
+                Цей сайт наразі перебуває на стадії розробки, вибачте за незручності.
             </p>
         </section>
 
         <!-- about -->
         <section id="overview">
-            <p class="section-label">// about</p>
-            <h2>What is this?</h2>
+            <p class="section-label">// про</p>
+            <h2>Що це таке?</h2>
             <p>
-                ProtOS Systems is a hub of projects the ProtOS developers are, have,
-                or are planning to work on. Our main focus is on our own operating system, ProtOS.
-                Throughout our time from starting ProtOS in 2025, to now, We've landed on a few more projects
-                that have to do with Windows, Linux, macOS, and even some hardware projects, such as installing Linux on
-                MacBook Silicon, hardware for protogens, and more. This website will be frequently updated with new developer logs,
-                project status updates and even posts about our work.
+                ProtOS Systems - це центр проектів, над якими розробники ProtOS працюють,
+                працювали або планують працювати. Наша основна увага зосереджена на власній
+                операційній системі - ProtOS. З моменту запуску ProtOS у 2025 році й до сьогодні
+                ми взялися за ще кілька проєктів, пов’язаних із Windows, Linux, macOS, а також
+                за деякі апаратні проєкти, такі як встановлення Linux на MacBook Silicon,
+                апаратне забезпечення для protogens тощо. Цей веб-сайт буде регулярно оновлюватися
+                новими щоденниками розробників, інформацією про стан проєктів та публікаціями про нашу роботу.
             </p>
             <p>
-                Why do you care?
-                If you've landed here, either you're unreasonably lost, or you take interest in low-level systems or
-                free and open source software. Whether you're a protogen looking to get
-                a visor, or a tech nerd who's looking to get Linux on their MacBook, this is where you would come to get that.
-
+                Чому це вас цікавить?
+                Якщо ви потрапили сюди, то або ви безпідставно заблукали, або вас цікавлять низькорівневі
+                системи чи вільне програмне забезпечення з відкритим кодом. Незалежно від того,
+                чи ви протоген, який хоче придбати візор, чи технічний фанат,
+                що прагне встановити Linux на свій MacBook, саме сюди ви й прийшли, щоб це зробити.
             </p>
         </section>
 
         <!-- work and focus -->
         <section id="work">
-            <p class="section-label">// focus</p>
-            <h2>Areas</h2>
+            <p class="section-label">// Фокус</p>
+            <h2>Області</h2>
             <div class="grid">
                 <div class="project-card">
                     <h3>&nbsp;</h3>
@@ -451,13 +309,10 @@ section p {
 
     <div class="newsletter">
         <div class="newsletter-inner">
-            <p class="newsletter-label">// stay up to date</p>
-            <h2 class="newsletter-heading">Subscribe to our newsletter.</h2>
-            <p class="newsletter-desc">
-                Get updated about our projects as soon as we announce it.
-
-                Don't want any more updates? Unsubscribe at any time.
-            </p>
+            <p class="newsletter-label">// будьте в курсі подій</p>
+            <h2 class="newsletter-heading">Підпишіться на нашу розсилку.</h2>
+            <p class="newsletter-desc">Дізнавайтеся про наші проекти одразу після їх оголошення.</p>
+            <p class="newsletter-desc">Не хочете більше отримувати повідомлення? Ви можете відмовитися від підписки в будь-який час.</p>
 
             <div class="newsletter-status" id="nl-status"></div>
 
@@ -468,10 +323,11 @@ section p {
                     type="email"
                     placeholder="you@example.com"
                     autocomplete="email"
+                    aria-label="адреса електронної пошти"
                     />
                 <button class="newsletter-btn" id="nl-btn" type="button">
                     <span class="spinner"></span>
-                    <span class="btn-label">Subscribe</span>
+                    <span class="btn-label">Підписатися</span>
                 </button>
             </div>
         </div>
@@ -479,11 +335,18 @@ section p {
 
     <footer class="footer">
         <div class="footer-bottom">
-            &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
+            &copy; <span id="year"></span> ProtOS Systems. Усі права захищені.
         </div>
     </footer>
 
+    <script src="/assets/js/lang.js"></script>
     <script>
+        const PAGE_LANG = 'ua';
+        const PAGE_SLUG = 'home';
+
+        Lang.init(PAGE_LANG, PAGE_SLUG);
+        Lang.buildDropdown('lang-trigger', 'lang-menu', PAGE_LANG, PAGE_SLUG);
+
         document.getElementById('year').textContent = new Date().getFullYear();
 
         const nlEmail = document.getElementById('nl-email');
@@ -503,7 +366,7 @@ section p {
 
             if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 nlEmail.classList.add('invalid');
-                nlShowStatus('error', 'Please enter a valid email address.');
+                nlShowStatus('error', 'Будь ласка, введіть дійсну адресу електронної пошти.');
                 return;
             }
 
@@ -519,21 +382,21 @@ section p {
 
                 if (res.ok || res.status === 204) {
                     nlForm.style.display = 'none';
-                    nlShowStatus('success', '// subscribed - welcome to the loop.');
+                    nlShowStatus('success', '// Ви підписалися — ласкаво просимо до нашої спільноти.');
                 } else {
                     const json = await res.json().catch(() => ({}));
 
                     if (res.status === 400 && json.code === 'DUPLICATE_PARAMETER') {
                         nlForm.style.display = 'none';
-                        nlShowStatus('success', '// already subscribed - you\'re in the loop.');
+                        nlShowStatus('success', '// Ви вже підписалися — ви в курсі подій.');
                     } else {
-                        nlShowStatus('error', json.message || 'Something went wrong. Please try again.');
+                        nlShowStatus('error', json.message || 'Сталася помилка. Спробуйте ще раз.');
                         nlBtn.disabled = false;
                         nlBtn.classList.remove('loading');
                     }
                 }
             } catch {
-                nlShowStatus('error', 'Network error. Please check your connection and try again.');
+                nlShowStatus('error', 'Помилка мережі. Перевірте з’єднання та спробуйте ще раз.');
                 nlBtn.disabled = false;
                 nlBtn.classList.remove('loading');
             }

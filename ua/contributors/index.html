@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ua">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Ver todos los colaboradores de ProtOS Systems."/>
+    <meta name="description" content="Переглянути всіх авторів ProtOS Systems."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colaboradores // ProtOS Systems</title>
+    <title>Учасники // ProtOS Systems</title>
     <link rel="stylesheet" href="/assets/css/pride.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/lang.css">
@@ -24,7 +24,7 @@
       <div class="pride-content">
         <span class="pride-comment">/*</span>
         <span class="pride-flag">🏳️‍🌈</span>
-        <span class="pride-keyword">Feliz Mes del Orgullo</span>
+        <span class="pride-keyword">З Місяцем Прайду</span>
         <span class="pride-comment">//</span>
         <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
         <span class="pride-comment"> */</span>
@@ -32,45 +32,44 @@
     </div>
     <nav class="navbar">
         <div class="navbar-row1">
-            <a class="site-title" href="/en/home/">ProtOS Systems</a>
+            <a class="site-title" href="/ua/home/">ProtOS Systems</a>
             <div class="lang-switcher">
                 <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="lang-trigger-code" id="lang-trigger-code">ES</span>
+                    <span class="lang-trigger-code" id="lang-trigger-code">UA</span>
                     <span class="lang-trigger-chevron"></span>
                 </button>
                 <div class="lang-menu" id="lang-menu" role="listbox"></div>
             </div>
         </div>
         <div class="nav-links">
-            <a class="tab" href="/es/home/">Resumen</a>
-            <a class="tab" href="/es/projects/">Proyectos</a>
-            <a class="tab" href="/es/dev-logs/">Bitácoras de desarrollo</a>
-            <a class="tab" href="/es/contact/">Contacto</a>
-            <a class="tab active" href="/es/contributors/">Colaboradores</a>
+            <a class="tab" href="/ua/home/">Огляд</a>
+            <a class="tab" href="/ua/projects/">Проєкти</a>
+            <a class="tab" href="/ua/dev-logs/">Журнали розробників</a>
+            <a class="tab" href="/ua/contact/">Контакти</a>
+            <a class="tab active" href="/ua/contributors/">Учасники</a>
         </div>
     </nav>
 
     <div class="wrap">
-      <p class="eyebrow">// Nuestros colaboradores maravillosos <3</p>
-      <h1>Colaboradores</h1>
+      <p class="eyebrow">// Наші чудові автори <3</p>
+      <h1>Aвтори</h1>
       <p class="page-lead" style="margin-bottom: 3rem;">
-        text goes here
+          тут має бути текст
       </p>
-
-      <div class="grid" id="contrib-grid">
-        <p class="empty">Cargando personas :3</p>
-      </div>
+        <div class="grid" id="contrib-grid">
+            <p class="empty">Завантаження людей :3</p>
+        </div>
     </div>
 
     <footer class="footer">
       <div class="footer-bottom">
-        &copy; <span id="year"></span> ProtOS Systems. Todos derechos reservados.
+        &copy; <span id="year"></span> ProtOS Systems. Усі права захищені.
       </div>
     </footer>
 
     <script src="/assets/js/lang.js"></script>
     <script>
-        const PAGE_LANG = 'es';
+        const PAGE_LANG = 'ua';
         const PAGE_SLUG = 'contributors';
 
         Lang.init(PAGE_LANG, PAGE_SLUG);
@@ -88,13 +87,13 @@
 
       fetch('/data/contrib.json')
           .then(res => {
-              if (!res.ok) throw new Error('No pudo cargar los colaboradores.');
+              if (!res.ok) throw new Error('Не вдалося завантажити авторів.');
               return res.json();
           })
           .then(data => {
               const contribs = data.contributors || [];
               if (contribs.length === 0) {
-                  gridEl.innerHTML = '<p class="empty">Aún no hay colaboradores en la lista.</p>';
+                  gridEl.innerHTML = '<p class="empty">Поки що авторів не вказано.</p>';
                   return;
               }
               gridEl.innerHTML = contribs.map(p => {
@@ -104,8 +103,8 @@
                       : `<div class="contrib-pfp contrib-pfp-fallback">${escapeHtml((p.name || '?').slice(0, 1))}</div>`;
                   const inner = `
                         ${pfp}
-                        <p>${escapeHtml(p.pronouns || 'Ninguna listados.')}</p>
-                        <span class="pill">${escapeHtml(p.status || 'Planificado')}</span>
+                        <p>${escapeHtml(p.pronouns || 'Не вказано.')}</p>
+                        <span class="pill">${escapeHtml(p.status || 'Заплановано')}</span>
                         <h3 style="margin-top: 0.75rem;">${escapeHtml(p.name)}</h3>
                         <p>${escapeHtml(p.description || '')}</p>
                         <div class="tag-list">${tags}</div>
@@ -118,7 +117,7 @@
               }).join('');
           })
           .catch(() => {
-              gridEl.innerHTML = '<p class="empty">No se pudieron cargar los colaboradores en este momento; inténtalo de nuevo más tarde.</p>';
+              gridEl.innerHTML = '<p class="empty">Наразі не вдалося завантажити список авторів. Спробуйте ще раз пізніше.</p>';
           });
     </script>
 </body>

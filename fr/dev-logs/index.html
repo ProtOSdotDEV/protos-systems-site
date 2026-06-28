@@ -60,7 +60,7 @@
         </p>
 
         <div id="log-list">
-            <p class="empty">Loading logs...</p>
+            <p class="empty">Chargement des logs...</p>
         </div>
     </div>
 
@@ -96,14 +96,14 @@
 
         fetch('/data/dev-logs.json')
             .then(res => {
-            if (!res.ok) throw new Error('Failed to load logs');
+            if (!res.ok) throw new Error('Les logs n\'ont pas pu être chargés');
             return res.json();
         })
             .then(data => {
                 const logs = (data.logs || []).slice().sort((a, b) => b.date.localeCompare(a.date));
 
                 if (logs.length === 0) {
-                    listEl.innerHTML = '<p class="empty">No developer logs yet. Check back soon.</p>';
+                    listEl.innerHTML = '<p class="empty">Pas encore de logs de développement. Revenez bientôt vérifier.</p>';
                     return;
                 }
 
@@ -120,9 +120,8 @@
                 `).join('');
             })
             .catch(() => {
-                listEl.innerHTML = '<p class="empty">Could not load developer logs right now. Try again later.</p>';
+                listEl.innerHTML = '<p class="empty">Les logs développeurs n\'ont pas pu être chargés pour le moment. Réessayez plus tard.</p>';
             });
-
     </script>
 </body>
 </html>

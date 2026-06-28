@@ -7,25 +7,25 @@
       "pfp": "/assets/img/pfps/sd/skxll.png",
       "tags": ["OS dev", "Arch Linux", "Jazzayy Swaggayyy"],
       "flag": "gay",
-      "pro": "he/him"
+      "pronouns": "he/him"
     },
     {
       "name": "Zinnaraux Kortig",
       "status": "COO",
       "description": "Website Development, General Operations and QA",
       "pfp": "/assets/img/pfps/zk/zinn.png",
-      "tags": ["Quality Assurance", "Website Design"],
+      "tags": ["Quality Assurance", "Website Design", "Ukranian Translator"],
       "flag": "pan",
-      "pro": "she/her"
+      "pronouns": "she/her"
     },
     {
       "name": "viperhacksaws",
       "status": "CDO",
       "description": "Graphic design, concept art, and small code contributions",
       "pfp": "/assets/img/pfps/vhs/viper.png",
-      "tags": ["Furry Artist", "Arch Linux"],
+      "tags": ["Furry Artist", "Arch Linux", "Spanish Translator"],
       "flag": "hetflex",
-      "pro": "he/him"
+      "pronouns": "he/him"
     },
     {
       "name": "Sine Ray",
@@ -34,7 +34,7 @@
       "pfp": "/assets/img/pfps/sr/sine.png",
       "tags": ["Protogen", "Emotional Support", "Silly"],
       "flag": "gay",
-      "pro": "he/him"
+      "pronouns": "he/him"
     },
     {
       "name": "Bonesman",
@@ -43,7 +43,7 @@
       "pfp": "/assets/img/pfps/bm/bones.png",
       "tags": ["Translator"],
       "flag": "genflu",
-      "pro": "he/they/she"
+      "pronouns": "he/they/she"
     }
   ]
 }

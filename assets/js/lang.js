@@ -7,7 +7,7 @@ const Lang = (() => {
         es: { name: 'Español', flagText: 'ES', code: 'ES' },
         // de: { name: 'Deutsch', flagText: 'DE', code: 'DE' },
         fr: { name: 'Français', flagText: 'FR', code: 'FR' },
-        // ua: { name: 'Українська', flagText: 'UA', code: 'UA' },
+        ua: { name: 'Українська', flagText: 'UA', code: 'UA' },
         // ru: { name: 'Русский', flagText: 'RU', code: 'RU' }
     };
 

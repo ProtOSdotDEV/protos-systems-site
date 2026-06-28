@@ -216,6 +216,9 @@
                 background: var(--green-glow);
                 border-radius: 2px;
             }
+            .success-screen.visible { /* DO NOT REMOVE */
+                display: flex;
+            }
             .success-eyebrow {
                 font-family: var(--mono), sans-serif;
                 font-size: 0.65rem;
@@ -330,13 +333,6 @@
                 text-transform: uppercase;
                 color: var(--text-dim);
             }
-
-            /* responsive */
-            @media (max-width: 600px) {
-                h1 { font-size: 1.6rem; }
-                .nav-links { position: static; transform: none; }
-                .navbar { flex-wrap: wrap; gap: 0.75rem; }
-            }
         </style>
     </head>
 <body>
@@ -417,12 +413,12 @@
         </form>
 
         <div class="success-screen" id="success-screen">
-            <p class="success-eyebrow">// transmission complete</p>
-            <h2 class="success-title">Message Sent.</h2>
+            <p class="success-eyebrow">// transmission complète</p>
+            <h2 class="success-title">Message envoyé.</h2>
             <p class="success-body">
-                Thanks for reaching out. We've received your message and will get back to you at the email address you provided as soon as we can.
+                Merci de nous avoir contacté. Nous avons reçu votre message et viendrons vers vous à l'adresse email que vous avez entré dès que nous pourrons.
             </p>
-            <a href="/" class="success-back">← Back to home</a>
+            <a href="/" class="success-back">← Retour à l'accueil</a>
         </div>
 
         <hr class="divider" id="divider" />
@@ -439,7 +435,7 @@
 
     <footer class="footer">
         <div class="footer-bottom">
-            &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
+            &copy; <span id="year"></span> ProtOS Systems. Tout Droits Réservés.
         </div>
     </footer>
 
@@ -507,7 +503,7 @@
             statusEl.className = 'form-status';
 
             if (!validate()) {
-                showError('Please fill in all fields before sending.');
+                showError('Veuillez remplir tout les champs avant d\'envoyer.');
                 return;
             }
 
@@ -541,12 +537,12 @@
                     showSuccess();
                 } else {
                     const json = await res.json().catch(() => ({}));
-                    showError(json.error || 'Something went wrong. Please try again or email us directly.');
+                    showError(json.error || 'Quelque chose s\'est mal passé. Veuillez réessayer ou nous envoyer un email directement.');
                     btn.disabled = false;
                     btn.classList.remove('loading');
                 }
             } catch {
-                showError('Network error. Please check your connection and try again.');
+                showError('Erreur de connection. Veuillez vérifier votre connexion à internet et rééssayer.');
                 btn.disabled = false;
                 btn.classList.remove('loading');
             }

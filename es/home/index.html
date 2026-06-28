@@ -308,7 +308,8 @@ section p {
             <h2 class="newsletter-heading">Suscríbete a nuestro boletín.</h2>
             <p class="newsletter-desc">
                 Mantente al día sobre nuestro proyectos tan pronto lo anunciemos.
-
+            </p>
+            <p class="newsletter-desc">
                 No quieres más actualizaciones? Cancela tu suscripción en cualqier momento.
             </p>
 
@@ -364,7 +365,7 @@ section p {
 
             if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 nlEmail.classList.add('invalid');
-                nlShowStatus('error', 'Please enter a valid email address.');
+                nlShowStatus('error', 'Por favor, ingresa una dirección de correo electrónico válida.');
                 return;
             }
 
@@ -380,21 +381,21 @@ section p {
 
                 if (res.ok || res.status === 204) {
                     nlForm.style.display = 'none';
-                    nlShowStatus('success', '// subscribed - welcome to the loop.');
+                    nlShowStatus('success', '// Te has suscrito: bienvenido al grupo.');
                 } else {
                     const json = await res.json().catch(() => ({}));
 
                     if (res.status === 400 && json.code === 'DUPLICATE_PARAMETER') {
                         nlForm.style.display = 'none';
-                        nlShowStatus('success', '// already subscribed - you\'re in the loop.');
+                        nlShowStatus('success', '// Ya estás suscrito: estás al tanto de todo.');
                     } else {
-                        nlShowStatus('error', json.message || 'Something went wrong. Please try again.');
+                        nlShowStatus('error', json.message || 'Algo salió mal. Inténtalo de nuevo.');
                         nlBtn.disabled = false;
                         nlBtn.classList.remove('loading');
                     }
                 }
             } catch {
-                nlShowStatus('error', 'Network error. Please check your connection and try again.');
+                nlShowStatus('error', 'Error de red. Por favor, revisa tu conexión e inténtalo de nuevo.');
                 nlBtn.disabled = false;
                 nlBtn.classList.remove('loading');
             }

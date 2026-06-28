@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Projects from ProtOS Systems"/>
+    <meta name="description" content="Proyectos de ProtOS Systems"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects // ProtOS Systems</title>
+    <title>Proyectos // ProtOS Systems</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -87,14 +87,14 @@
 
     fetch('/data/projects.json')
         .then(res => {
-            if (!res.ok) throw new Error('Failed to load projects');
+            if (!res.ok) throw new Error('No pudo cargar los proyectos');
             return res.json();
         })
         .then(data => {
             const projects = data.projects || [];
 
             if (projects.length === 0) {
-                gridEl.innerHTML = '<p class="empty">No projects listed yet.</p>';
+                gridEl.innerHTML = '<p class="empty">Aún no hay proyectos en la lista.</p>';
                 return;
             }
 
@@ -112,7 +112,7 @@
             }).join('');
         })
         .catch(() => {
-            gridEl.innerHTML = '<p class="empty">Could not load projects right now. Try again later.</p>';
+            gridEl.innerHTML = '<p class="empty">No se pudieron cargar los proyectos en este momento. Inténtalo de nuevo más tarde.</p>';
         });
 </script>
 </body>

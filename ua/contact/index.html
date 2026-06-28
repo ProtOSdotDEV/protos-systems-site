@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="Contact ProtOS Systems"/>
+        <meta name="description" content="Зв’яжіться з компанією ProtOS Systems"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/assets/css/pride.css">
-        <link rel="stylesheet" href="/assets/css/nav.css">
         <link rel="stylesheet" href="/assets/css/styles.css">
-        <title>Contact // ProtOS Systems</title>
+        <link rel="stylesheet" href="/assets/css/lang.css">
+        <link rel="stylesheet" href="/assets/css/nav.css">
+        <title>Контакти // ProtOS Systems</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -42,52 +43,6 @@
 
             a { color: var(--green); text-decoration: none; }
             a:hover { color: var(--text-bright); text-decoration: underline; }
-
-            /* navbar */
-            .navbar {
-                width: 100%;
-                background: var(--surface);
-                border-bottom: 1px solid var(--border);
-                position: relative;
-                display: flex;
-                align-items: center;
-                padding: 0.85rem 1.5rem;
-                min-height: 3rem;
-            }
-
-            .site-title {
-                font-family: var(--mono), sans-serif;
-                font-size: 1rem;
-                font-weight: 700;
-                letter-spacing: -0.02em;
-                color: var(--green);
-                position: relative;
-                z-index: 1;
-                white-space: nowrap;
-            }
-            .site-title:hover { color: var(--text-bright); text-decoration: none; }
-
-            .nav-links {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                gap: 0.25rem;
-                flex-wrap: nowrap;
-            }
-
-            .tab {
-                color: var(--text-dim);
-                font-size: 0.72rem;
-                font-weight: 600;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                padding: 0.4rem 0.85rem;
-                border-radius: 2px;
-                transition: color 0.15s, background 0.15s;
-            }
-            .tab:hover { color: var(--green); text-decoration: none; background: var(--green-glow); }
-            .tab.active { color: var(--green); background: var(--green-glow); border: 1px solid var(--green-dim); }
 
             /* wrap */
             .wrap {
@@ -181,10 +136,6 @@
                 background: rgba(0, 255, 65, 0.03);
             }
 
-            input.invalid, textarea.invalid, select.invalid {
-                border-color: var(--error);
-            }
-
             textarea {
                 resize: vertical;
                 min-height: 160px;
@@ -240,7 +191,6 @@
                 display: none;
             }
             .submit-btn.loading .spinner { display: block; }
-            .submit-btn.loading .btn-label { opacity: 0.6; }
             @keyframes spin { to { transform: rotate(360deg); } }
 
             /* status */
@@ -254,12 +204,6 @@
                 border-radius: 2px;
                 border-left: 2px solid;
             }
-            .form-status.error {
-                display: block;
-                color: var(--error);
-                border-color: var(--error);
-                background: rgba(255, 68, 68, 0.06);
-            }
 
             /* success screen */
             .success-screen {
@@ -272,7 +216,9 @@
                 background: var(--green-glow);
                 border-radius: 2px;
             }
-            .success-screen.visible { display: flex; }
+            .success-screen.visible { /* DO NOT REMOVE */
+                display: flex;
+            }
             .success-eyebrow {
                 font-family: var(--mono), sans-serif;
                 font-size: 0.65rem;
@@ -387,211 +333,220 @@
                 text-transform: uppercase;
                 color: var(--text-dim);
             }
-
-            /* responsive */
-            @media (max-width: 600px) {
-                h1 { font-size: 1.6rem; }
-                .nav-links { position: static; transform: none; }
-                .navbar { flex-wrap: wrap; gap: 0.75rem; }
-            }
         </style>
     </head>
 <body>
-<div class="pride-banner">
-    <div class="pride-stripes">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span>
+    <div class="pride-banner">
+        <div class="pride-stripes">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span>
+        </div>
+        <div class="pride-content">
+            <span class="pride-comment">/*</span>
+            <span class="pride-flag">🏳️‍🌈</span>
+            <span class="pride-keyword">З Місяцем Прайду</span>
+            <span class="pride-comment">//</span>
+            <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
+            <span class="pride-comment"> */</span>
+        </div>
     </div>
-    <div class="pride-content">
-        <span class="pride-comment">/*</span>
-        <span class="pride-flag">🏳️‍🌈</span>
-        <span class="pride-keyword">Happy Pride Month</span>
-        <span class="pride-comment">//</span>
-        <span class="pride-call"><span class="pride-fn">ProtOS.support(</span><span class="pride-string">"LGBTQIA+"</span><span class="pride-fn">)</span></span>
-        <span class="pride-comment"> */</span>
-    </div>
-</div>
-<nav class="navbar">
-    <a class="site-title" href="/en/home/">ProtOS Systems</a>
-    <div class="nav-links">
-        <a class="tab" href="/en/home">Overview</a>
-        <a class="tab" href="/en/projects/">Projects</a>
-        <a class="tab" href="/en/dev-logs/">Developer Logs</a>
-        <a class="tab active" href="/en/contact">Contact</a>
-        <a class="tab" href="/en/contributors/">Contributors</a>
-    </div>
-</nav>
-
-<div class="wrap">
-    <p class="eyebrow">// get in touch</p>
-    <h1>Contact</h1>
-    <p class="page-lead">
-        Have a question about a project, want to collaborate, or want to reach out?
-        Fill out this form below and we'll get back to you.
-    </p>
-
-    <div class="content-col">
-    <div class="form-status" id="form-status"></div>
-
-    <form class="contact-form" id="contact-form" novalidate>
-        <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required/>
+    <nav class="navbar">
+        <div class="navbar-row1">
+            <a class="site-title" href="/ua/home/">ProtOS Systems</a>
+            <div class="lang-switcher">
+                <button class="lang-trigger" id="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="lang-trigger-code" id="lang-trigger-code">UA</span>
+                    <span class="lang-trigger-chevron"></span>
+                </button>
+                <div class="lang-menu" id="lang-menu" role="listbox"></div>
+            </div>
         </div>
-        <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required/>
+        <div class="nav-links">
+            <a class="tab" href="/ua/home/">Огляд</a>
+            <a class="tab" href="/ua/projects/">Проєкти</a>
+            <a class="tab" href="/ua/dev-logs/">Журнали розробників</a>
+            <a class="tab active" href="/ua/contact">Контакти</a>
+            <a class="tab" href="/ua/contributors/">Учасники</a>
         </div>
-        <div class="field">
-            <label for="subject">Subject</label>
-            <select id="subject" name="subject" required>
-                <option value="" disabled selected>Select a topic...</option>
-                <option value="General Enquiry">General Enquiry</option>
-                <option value="Project Collaboration">Project Collaboration</option>
-                <option value="ProtOS">ProtOS</option>
-                <option value="Protogen Hardware/Visors">Protogen Hardware/Visors</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
-        <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
-        </div>
-        <button type="submit" class="submit-btn" id="submit-btn">
-            <span class="spinner"></span>
-            <span class="btn-label">Send Message</span>
-        </button>
-    </form>
+    </nav>
 
-    <div class="success-screen" id="success-screen">
-        <p class="success-eyebrow">// transmission complete</p>
-        <h2 class="success-title">Message Sent.</h2>
-        <p class="success-body">
-            Thanks for reaching out. We've received your message and will get back to you at the email address you provided as soon as we can.
+    <div class="wrap">
+        <p class="eyebrow">// зв’яжіться з нами</p>
+        <h1>Контакти</h1>
+        <p class="page-lead">
+            Маєте запитання щодо проєкту, хочете співпрацювати або зв’язатися з нами?
+            Заповніть форму нижче, і ми зв’яжемося з вами.
         </p>
-        <a href="/" class="success-back">← Back to home</a>
+
+        <div class="content-col">
+        <div class="form-status" id="form-status"></div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+            <div class="field">
+                <label for="name">Ім'я</label>
+                <input type="text" id="name" name="name" placeholder="Ваше ім'я" autocomplete="name" required/>
+            </div>
+            <div class="field">
+                <label for="email">Електронна пошта</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required/>
+            </div>
+            <div class="field">
+                <label for="subject">Тема</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Виберіть тему...</option>
+                    <option value="General Enquiry">Загальний запит</option>
+                    <option value="Project Collaboration">Співпраця над проектом</option>
+                    <option value="ProtOS">ProtOS</option>
+                    <option value="Protogen Hardware/Visors">Апаратне забезпечення та візори Protogen</option>
+                    <option value="Other">Інше</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="message">Повідомлення</label>
+                <textarea id="message" name="message" placeholder="Що вас турбує?" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submit-btn">
+                <span class="spinner"></span>
+                <span class="btn-label">Надіслати повідомлення</span>
+            </button>
+        </form>
+
+        <div class="success-screen" id="success-screen">
+            <p class="success-eyebrow">// Передача завершена</p>
+            <h2 class="success-title">Повідомлення надіслано.</h2>
+            <p class="success-body">
+                Дякуємо за звернення. Ми отримали ваше повідомлення і відповімо вам на вказану вами електронну адресу, щойно це буде можливо.
+            </p>
+            <a href="/" class="success-back">← Назад на головну сторінку</a>
+        </div>
+
+        <hr class="divider" id="divider" />
+
+        <div class="direct-card" id="direct-card" style="margin-top: 0;">
+            <p class="direct-label">Або зв’яжіться з нами безпосередньо</p>
+            <a class="direct-email-link" href="mailto:contact@protos-systems.dev">
+                <span class="direct-email-icon">✉</span>
+                contact@protos-systems.dev
+            </a>
+        </div>
+        </div>
     </div>
 
-    <hr class="divider" id="divider" />
+    <footer class="footer">
+        <div class="footer-bottom">
+            &copy; <span id="year"></span> ProtOS Systems. Усі права захищені.
+        </div>
+    </footer>
 
-    <div class="direct-card" id="direct-card" style="margin-top: 0;">
-        <p class="direct-label">Or reach us directly</p>
-        <a class="direct-email-link" href="mailto:contact@protos-systems.dev">
-            <span class="direct-email-icon">✉</span>
-            contact@protos-systems.dev
-        </a>
-    </div>
-    </div>
-</div>
+    <script src="/assets/js/lang.js"></script>
+    <script>
+        const PAGE_LANG = 'ua';
+        const PAGE_SLUG = 'contact';
 
-<footer class="footer">
-    <div class="footer-bottom">
-        &copy; <span id="year"></span> ProtOS Systems. All rights reserved.
-    </div>
-</footer>
+        Lang.init(PAGE_LANG, PAGE_SLUG);
+        Lang.buildDropdown('lang-trigger', 'lang-menu', PAGE_LANG, PAGE_SLUG);
 
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-    const FORMSPREE_ID = 'mgobrbyn';
+        const FORMSPREE_ID = 'mgobrbyn';
 
-    // test mode
-    const TEST_MODE = false;
+        // test mode
+        const TEST_MODE = false;
 
-    const form          = document.getElementById('contact-form');
-    const btn           = document.getElementById('submit-btn');
-    const statusEl      = document.getElementById('form-status');
-    const successScreen = document.getElementById('success-screen');
-    const divider       = document.getElementById('divider');
+        const form          = document.getElementById('contact-form');
+        const btn           = document.getElementById('submit-btn');
+        const statusEl      = document.getElementById('form-status');
+        const successScreen = document.getElementById('success-screen');
+        const divider       = document.getElementById('divider');
 
-    function showError(msg) {
-        statusEl.className = 'form-status error';
-        statusEl.textContent = msg;
-        statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    function showSuccess() {
-        form.style.display = 'none';
-        statusEl.style.display = 'none';
-        divider.style.display = 'none';
-        document.getElementById('direct-card').style.marginTop = '3rem';
-        successScreen.classList.add('visible');
-        successScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function validate() {
-        let ok = true;
-        ['name', 'email', 'subject', 'message'].forEach(id => {
-            const el = document.getElementById(id);
-            if (!el.value.trim()) {
-                el.classList.add('invalid');
-                ok = false;
-            } else {
-                el.classList.remove('invalid');
-            }
-        });
-        const emailEl = document.getElementById('email');
-        if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
-            emailEl.classList.add('invalid');
-            ok = false;
-        }
-        return ok;
-    }
-
-    form.querySelectorAll('input, textarea, select').forEach(el => {
-        el.addEventListener('input', () => el.classList.remove('invalid'));
-    });
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        statusEl.className = 'form-status';
-
-        if (!validate()) {
-            showError('Please fill in all fields before sending.');
-            return;
-        }
-
-        btn.disabled = true;
-        btn.classList.add('loading');
-
-        // TEST MODE: skip fetch, show success immediately
-        if (TEST_MODE) {
-            await new Promise(r => setTimeout(r, 800));
-            btn.disabled = false;
-            btn.classList.remove('loading');
-            showSuccess();
-            return;
+        function showError(msg) {
+            statusEl.className = 'form-status error';
+            statusEl.textContent = msg;
+            statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        const data = {
-            name:    document.getElementById('name').value.trim(),
-            email:   document.getElementById('email').value.trim(),
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value.trim(),
-        };
+        function showSuccess() {
+            form.style.display = 'none';
+            statusEl.style.display = 'none';
+            divider.style.display = 'none';
+            document.getElementById('direct-card').style.marginTop = '3rem';
+            successScreen.classList.add('visible');
+            successScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
 
-        try {
-            const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-                method:  'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body:    JSON.stringify(data),
+        function validate() {
+            let ok = true;
+            ['name', 'email', 'subject', 'message'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el.value.trim()) {
+                    el.classList.add('invalid');
+                    ok = false;
+                } else {
+                    el.classList.remove('invalid');
+                }
             });
+            const emailEl = document.getElementById('email');
+            if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+                emailEl.classList.add('invalid');
+                ok = false;
+            }
+            return ok;
+        }
 
-            if (res.ok) {
+        form.querySelectorAll('input, textarea, select').forEach(el => {
+            el.addEventListener('input', () => el.classList.remove('invalid'));
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            statusEl.className = 'form-status';
+
+            if (!validate()) {
+                showError('Будь ласка, заповніть усі поля перед відправленням.');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.classList.add('loading');
+
+            // TEST MODE: skip fetch, show success immediately
+            if (TEST_MODE) {
+                await new Promise(r => setTimeout(r, 800));
+                btn.disabled = false;
+                btn.classList.remove('loading');
                 showSuccess();
-            } else {
-                const json = await res.json().catch(() => ({}));
-                showError(json.error || 'Something went wrong. Please try again or email us directly.');
+                return;
+            }
+
+            const data = {
+                name:    document.getElementById('name').value.trim(),
+                email:   document.getElementById('email').value.trim(),
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value.trim(),
+            };
+
+            try {
+                const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body:    JSON.stringify(data),
+                });
+
+                if (res.ok) {
+                    showSuccess();
+                } else {
+                    const json = await res.json().catch(() => ({}));
+                    showError(json.error || 'Сталася помилка. Спробуйте ще раз або надішліть нам електронного листа безпосередньо.');
+                    btn.disabled = false;
+                    btn.classList.remove('loading');
+                }
+            } catch {
+                showError('Помилка мережі. Перевірте з’єднання та спробуйте ще раз.');
                 btn.disabled = false;
                 btn.classList.remove('loading');
             }
-        } catch {
-            showError('Network error. Please check your connection and try again.');
-            btn.disabled = false;
-            btn.classList.remove('loading');
-        }
-    });
-</script>
+        });
+    </script>
 </body>
 </html>
